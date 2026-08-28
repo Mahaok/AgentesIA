@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cfg8daw75oj8a"]
+
+[ext_resource type="Texture2D" uid="uid://dlvyp8m4s7i1p" path="res://Buildings/Red Buildings/Monastery.png" id="1_0ogwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xudr7"]
+size = Vector2(114, 80)
+
+[node name="Igreja" type="StaticBody2D" unique_id=963714311]
+scale = Vector2(2, 2)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=120125700]
+texture = ExtResource("1_0ogwt")
+offset = Vector2(0, -140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=121734996]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_xudr7")
