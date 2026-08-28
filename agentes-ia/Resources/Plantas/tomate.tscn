@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b14lo4q81cqr8"]
+
+[ext_resource type="Script" uid="uid://68fxpr73wh5o" path="res://Resources/Plantas/tomate.gd" id="1_leple"]
+[ext_resource type="Texture2D" uid="uid://bj7u0s6t12f77" path="res://Resources/Plantas/Crop_Spritesheet.png" id="1_nlyb5"]
+
+[sub_resource type="Animation" id="Animation_leple"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [29]
+}
+
+[sub_resource type="Animation" id="Animation_cx3md"]
+resource_name = "tomate"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [29, 28, 27, 26, 25, 24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwsv2"]
+_data = {
+&"RESET": SubResource("Animation_leple"),
+&"tomate": SubResource("Animation_cx3md")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn4ct"]
+size = Vector2(64, 64)
+
+[node name="Tomate" type="Area2D" unique_id=145244200 node_paths=PackedStringArray("textura", "animacao")]
+script = ExtResource("1_leple")
+textura = NodePath("textura")
+animacao = NodePath("animacao")
+
+[node name="textura" type="Sprite2D" parent="." unique_id=590460869]
+scale = Vector2(3, 3)
+texture = ExtResource("1_nlyb5")
+hframes = 12
+vframes = 10
+frame = 29
+
+[node name="animacao" type="AnimationPlayer" parent="." unique_id=1723958145]
+libraries/ = SubResource("AnimationLibrary_kwsv2")
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=245910742]
+shape = SubResource("RectangleShape2D_bn4ct")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

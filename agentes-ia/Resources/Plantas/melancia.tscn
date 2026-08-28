@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://sm23huofvft3"]
+
+[ext_resource type="Script" uid="uid://dksby3g4jm3x2" path="res://Resources/Plantas/melancia.gd" id="1_8keob"]
+[ext_resource type="Texture2D" uid="uid://bj7u0s6t12f77" path="res://Resources/Plantas/Crop_Spritesheet.png" id="1_yyg1l"]
+
+[sub_resource type="Animation" id="Animation_8keob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [35]
+}
+
+[sub_resource type="Animation" id="Animation_2ohhl"]
+resource_name = "melancia"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [35, 34, 33, 32, 31, 30]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7ugk"]
+_data = {
+&"RESET": SubResource("Animation_8keob"),
+&"melancia": SubResource("Animation_2ohhl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xudr7"]
+radius = 33.0
+
+[node name="Melancia" type="Area2D" unique_id=1343069237 node_paths=PackedStringArray("textura", "animacao")]
+script = ExtResource("1_8keob")
+textura = NodePath("textura")
+animacao = NodePath("animacao")
+
+[node name="textura" type="Sprite2D" parent="." unique_id=984292056]
+scale = Vector2(3, 3)
+texture = ExtResource("1_yyg1l")
+hframes = 12
+vframes = 10
+frame = 35
+
+[node name="animacao" type="AnimationPlayer" parent="." unique_id=922033482]
+libraries/ = SubResource("AnimationLibrary_q7ugk")
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=1550599415]
+shape = SubResource("CircleShape2D_xudr7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

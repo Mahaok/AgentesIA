@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b73twpdaw1qnc"]
+
+[ext_resource type="Script" uid="uid://c40wu3gg8vjo" path="res://Coletaveis/componente_coletavel.gd" id="1_um47h"]
+
+[node name="ComponenteColetavel" type="Area2D" unique_id=2068583486]
+script = ExtResource("1_um47h")
+
+[node name="textura" type="Sprite2D" parent="." unique_id=914526716]
+y_sort_enabled = true
+
+[node name="animacao" type="AnimationPlayer" parent="." unique_id=810797177]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

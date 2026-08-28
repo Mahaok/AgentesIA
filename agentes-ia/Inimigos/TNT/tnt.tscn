@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://coajmgtv7jhdy"]
+
+[ext_resource type="Texture2D" uid="uid://cv2ssdblrcgdx" path="res://Inimigos/TNT/TNT_Red.png" id="1_dmaui"]
+[ext_resource type="Script" uid="uid://d3453nii0jc8u" path="res://Inimigos/TNT/tnt.gd" id="1_jvfwj"]
+[ext_resource type="Texture2D" uid="uid://goj0yqdf1thy" path="res://Inimigos/Dead.png" id="5_abl7k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_22hpo"]
+radius = 8.0
+height = 48.0
+
+[sub_resource type="Animation" id="Animation_vj0s6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Morto:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jvfwj"]
+resource_name = "bomba"
+length = 0.6
+loop_mode = 1
+step = 0.1
+
+[sub_resource type="Animation" id="Animation_6xkv1"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ui7gg"]
+resource_name = "bomba"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_abl7k"]
+resource_name = "kabum"
+length = 0.9
+step = 0.1
+
+[sub_resource type="Animation" id="Animation_wvta2"]
+resource_name = "morreu"
+length = 1.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Morto:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_nw6eg"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xwnrb"]
+_data = {
+&"RESET": SubResource("Animation_vj0s6"),
+&"bomba": SubResource("Animation_jvfwj"),
+&"idle": SubResource("Animation_6xkv1"),
+&"jogando": SubResource("Animation_ui7gg"),
+&"kabum": SubResource("Animation_abl7k"),
+&"morreu": SubResource("Animation_wvta2"),
+&"walk": SubResource("Animation_nw6eg")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_phjhy"]
+radius = 320.0
+
+[node name="TNT" type="CharacterBody2D" unique_id=965667395 node_paths=PackedStringArray("goblin_tnt", "morto", "anima", "walk_timer", "bomba_timer") groups=["enemy"]]
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_jvfwj")
+goblin_tnt = NodePath("Textura")
+morto = NodePath("Morto")
+anima = NodePath("Animacao")
+walk_timer = NodePath("Timer")
+bomba_timer = NodePath("BombaTimer")
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=2046522203]
+texture = ExtResource("1_dmaui")
+offset = Vector2(0, -30)
+hframes = 7
+vframes = 3
+
+[node name="Morto" type="Sprite2D" parent="." unique_id=879951587]
+texture = ExtResource("5_abl7k")
+offset = Vector2(0, -30)
+hframes = 7
+vframes = 2
+
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=415600180]
+show_behind_parent = true
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_22hpo")
+
+[node name="Animacao" type="AnimationPlayer" parent="." unique_id=753370526]
+libraries/ = SubResource("AnimationLibrary_xwnrb")
+autoplay = &"idle"
+
+[node name="AreaDeteccao" type="Area2D" parent="." unique_id=1497509170]
+show_behind_parent = true
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaDeteccao" unique_id=1736091410]
+shape = SubResource("CircleShape2D_phjhy")
+
+[node name="Timer" type="Timer" parent="." unique_id=1526474370]
+
+[node name="BombaTimer" type="Timer" parent="." unique_id=171589011]
+wait_time = 2.0
+
+[connection signal="animation_finished" from="Animacao" to="." method="_on_animacao_animation_finished"]
+[connection signal="body_entered" from="AreaDeteccao" to="." method="_on_area_deteccao_body_entered"]
+[connection signal="body_exited" from="AreaDeteccao" to="." method="_on_area_deteccao_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BombaTimer" to="." method="_on_tempo_bomba_timeout"]

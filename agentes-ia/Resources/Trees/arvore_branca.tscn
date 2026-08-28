@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://syog6x23eu5x"]
+
+[ext_resource type="Texture2D" uid="uid://dih1d8ppuxyon" path="res://Resources/Trees/Tree3.png" id="1_jpxn5"]
+[ext_resource type="Script" uid="uid://dnufnjxuvyfn" path="res://Resources/Trees/arvore_branca.gd" id="1_p1y62"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1y62"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5030"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cauq"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01jwk"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wt53"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpxfh"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwidr"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be033"]
+atlas = ExtResource("1_jpxn5")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xudr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1y62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5030")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cauq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01jwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wt53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpxfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwidr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be033")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wuano"]
+radius = 12.0
+height = 56.0
+
+[node name="ArvoreBranca" type="StaticBody2D" unique_id=768024084 node_paths=PackedStringArray("textura")]
+script = ExtResource("1_p1y62")
+textura = NodePath("TexturaAnimada")
+
+[node name="TexturaAnimada" type="AnimatedSprite2D" parent="." unique_id=792584726]
+sprite_frames = SubResource("SpriteFrames_xudr7")
+autoplay = "default"
+frame_progress = 0.27715248
+offset = Vector2(0, -64)
+
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=1839105189]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wuano")

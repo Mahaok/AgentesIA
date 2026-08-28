@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://3qgerqxtyve7"]
+
+[ext_resource type="Texture2D" uid="uid://2qm0amgd0lt8" path="res://Buildings/Canoa/Canoa.png" id="1_ju6fe"]
+[ext_resource type="Script" uid="uid://csuggpcqx71y0" path="res://Buildings/Canoa/canoa_teste_2.gd" id="1_x3n57"]
+
+[sub_resource type="Animation" id="Animation_50a54"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7oa2b"]
+resource_name = "canoa"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3n57"]
+_data = {
+&"RESET": SubResource("Animation_50a54"),
+&"canoa": SubResource("Animation_7oa2b")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_68gkv"]
+radius = 57.0
+height = 238.0
+
+[node name="CanoaTeste2" type="CharacterBody2D" unique_id=1539057365 node_paths=PackedStringArray("canoa", "textura") groups=["barco"]]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+platform_on_leave = 1
+script = ExtResource("1_x3n57")
+canoa = NodePath(".")
+textura = NodePath("Textura")
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1987860091]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ju6fe")
+offset = Vector2(0, -20)
+flip_h = true
+hframes = 7
+
+[node name="Animacao" type="AnimationPlayer" parent="." unique_id=1157457357]
+libraries/ = SubResource("AnimationLibrary_x3n57")
+autoplay = &"canoa"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1065859650]
+position = Vector2(-2, -36)
+scale = Vector2(1.0991379, 1.0290354)
+polygon = PackedVector2Array(110.99608, 106.896225, 123.73334, 103.00908, 128.28235, 90.3759, 127.37255, -33.040646, 107.356865, -42.758488, 110.08628, 46.645622, 100.07844, 56.363464, -84.61176, 55.391678, -100.07843, 42.758488, -101.89804, -20.40746, -62.77647, -44.702053, 107.356865, -42.758488, 127.37255, -33.040646, 120.094124, -64.137726, 101.89804, -77.74271, -62.77647, -74.82735, -94.619606, -66.0813, -117.3647, -50.532757, -114.63529, 69.96844, -107.35686, 93.291245, -94.619606, 106.896225)
+
+[node name="AreaBarco" type="Area2D" parent="." unique_id=718650684]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaBarco" unique_id=1638431726]
+position = Vector2(0, -24)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_68gkv")
+
+[connection signal="body_entered" from="AreaBarco" to="." method="_on_area_barco_body_entered"]
+[connection signal="body_exited" from="AreaBarco" to="." method="_on_area_barco_body_exited"]

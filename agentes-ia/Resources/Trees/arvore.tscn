@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://pjyigiy3jdog"]
+
+[ext_resource type="Texture2D" uid="uid://c0vcwvqdeykib" path="res://Resources/Trees/Tree.png" id="1_nwh0h"]
+
+[sub_resource type="Animation" id="Animation_mfqjr"]
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textura2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textura3:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ybngo"]
+resource_name = "arvore"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehpnj"]
+_data = {
+&"RESET": SubResource("Animation_mfqjr"),
+&"arvore": SubResource("Animation_ybngo")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8w10v"]
+radius = 59.0
+height = 194.0
+
+[node name="arvore" type="AnimatableBody2D" unique_id=1605608460]
+
+[node name="textura" type="Sprite2D" parent="." unique_id=902984480]
+texture = ExtResource("1_nwh0h")
+offset = Vector2(0, -40)
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="textura" unique_id=51414909]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ehpnj")
+autoplay = &"arvore"
+
+[node name="textura2" type="Sprite2D" parent="." unique_id=1847933999]
+position = Vector2(-43, 28)
+texture = ExtResource("1_nwh0h")
+offset = Vector2(0, -40)
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="textura2" unique_id=1081373589]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ehpnj")
+autoplay = &"arvore2"
+
+[node name="textura3" type="Sprite2D" parent="." unique_id=909848339]
+position = Vector2(33, 39)
+texture = ExtResource("1_nwh0h")
+offset = Vector2(0, -40)
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="textura3" unique_id=1267700282]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ehpnj")
+autoplay = &"RESET"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=988148713]
+position = Vector2(0, 27)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8w10v")

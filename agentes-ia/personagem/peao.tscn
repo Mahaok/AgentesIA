@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bgu7moq3fmmwf"]
+
+[ext_resource type="Script" uid="uid://16e02wudempg" path="res://personagem/peao.gd" id="1_4nufv"]
+[ext_resource type="Script" uid="uid://cdbgbub8hko3n" path="res://personagem/camera_2d.gd" id="3_5dg7c"]
+
+[sub_resource type="Animation" id="Animation_4nufv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ujdcl"]
+resource_name = "andando"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_5dg7c"]
+resource_name = "attack_axe"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_qgf6f"]
+resource_name = "attack_hammer"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_2crpa"]
+resource_name = "parado"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jxoey"]
+_data = {
+&"RESET": SubResource("Animation_4nufv"),
+&"andando": SubResource("Animation_ujdcl"),
+&"attack_axe": SubResource("Animation_5dg7c"),
+&"attack_hammer": SubResource("Animation_qgf6f"),
+&"parado": SubResource("Animation_2crpa")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xudr7"]
+radius = 11.0
+height = 42.0
+
+[node name="personagem" type="CharacterBody2D" unique_id=1903019137 node_paths=PackedStringArray("textura", "animacao")]
+motion_mode = 1
+script = ExtResource("1_4nufv")
+move_speed = 192.0
+left_attack_name = "attack_axe"
+right_attack_name = "attack_hammer"
+min_attack = 10
+max_attack = 30
+textura = NodePath("textura")
+animacao = NodePath("animacao")
+
+[node name="textura" type="Sprite2D" parent="." unique_id=219889177]
+offset = Vector2(0, -26)
+hframes = 6
+vframes = 6
+
+[node name="animacao" type="AnimationPlayer" parent="." unique_id=221169665]
+libraries/ = SubResource("AnimationLibrary_jxoey")
+autoplay = &"parado"
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=1455228045]
+show_behind_parent = true
+position = Vector2(0, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_xudr7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1404553414]
+zoom = Vector2(0.7, 0.7)
+script = ExtResource("3_5dg7c")
+
+[connection signal="animation_finished" from="animacao" to="." method="_on_animacao_finished"]

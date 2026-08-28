@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bi6c011osxm6a"]
+
+[ext_resource type="Script" uid="uid://buprboykb21kb" path="res://decoracao.gd" id="1_s8r5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w10v"]
+size = Vector2(56, 44)
+
+[node name="decoracao" type="Node2D" unique_id=832695215]
+y_sort_enabled = true
+position = Vector2(0, -8)
+script = ExtResource("1_s8r5v")
+
+[node name="textura1" type="Sprite2D" parent="." unique_id=328005675]
+position = Vector2(16, 8)
+
+[node name="textura2" type="Sprite2D" parent="." unique_id=1290138853]
+position = Vector2(-18, 10)
+scale = Vector2(0.984375, 1)
+
+[node name="textura3" type="Sprite2D" parent="." unique_id=1100697199]
+position = Vector2(0, -9)
+
+[node name="colisao_fisica" type="StaticBody2D" parent="." unique_id=861361812]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colisao_fisica" unique_id=1987879492]
+shape = SubResource("RectangleShape2D_8w10v")

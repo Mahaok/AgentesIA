@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ctctq2hdllivr"]
+
+[ext_resource type="PackedScene" uid="uid://b73twpdaw1qnc" path="res://Coletaveis/componente_coletavel.tscn" id="1_qq5gd"]
+[ext_resource type="Texture2D" uid="uid://rgmtmu2bvwwp" path="res://Resources/Resources/W_Spawn.png" id="2_atcba"]
+
+[sub_resource type="Animation" id="Animation_x87v1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_55kdk"]
+resource_name = "spawn"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7g04e"]
+_data = {
+&"RESET": SubResource("Animation_x87v1"),
+&"spawn": SubResource("Animation_55kdk")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w10v"]
+radius = 64.0
+
+[node name="Wood" unique_id=2068583486 instance=ExtResource("1_qq5gd")]
+y_sort_enabled = false
+
+[node name="textura" parent="." index="0" unique_id=914526716]
+y_sort_enabled = false
+texture = ExtResource("2_atcba")
+hframes = 7
+
+[node name="animacao" parent="." index="1" unique_id=810797177]
+libraries/ = SubResource("AnimationLibrary_7g04e")
+autoplay = &"spawn"
+
+[node name="colisao" type="CollisionShape2D" parent="." index="2" unique_id=1784808056]
+shape = SubResource("CircleShape2D_8w10v")

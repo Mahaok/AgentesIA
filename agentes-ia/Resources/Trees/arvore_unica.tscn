@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://dq6dvkcrk4dv8"]
+
+[ext_resource type="Script" uid="uid://b4j6q2n4wxot2" path="res://Resources/Trees/arvore_unica.gd" id="1_6r0a0"]
+[ext_resource type="Texture2D" uid="uid://c0vcwvqdeykib" path="res://Resources/Trees/Tree.png" id="1_x1y2f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8w10v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvnxi"]
+radius = 17.0
+height = 78.0
+
+[sub_resource type="Animation" id="Animation_x1y2f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("colisao:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4edk8"]
+resource_name = "hit"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("colisao:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6r0a0"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("colisao:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lnm4q"]
+resource_name = "kill"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("colisao:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4edk8"]
+_data = {
+&"RESET": SubResource("Animation_x1y2f"),
+&"hit": SubResource("Animation_4edk8"),
+&"idle": SubResource("Animation_6r0a0"),
+&"kill": SubResource("Animation_lnm4q")
+}
+
+[node name="arvore_unica" type="StaticBody2D" unique_id=2096270677 node_paths=PackedStringArray("anima", "respawn_timer")]
+physics_material_override = SubResource("PhysicsMaterial_8w10v")
+script = ExtResource("1_6r0a0")
+anima = NodePath("animacao")
+respawn_timer = NodePath("RespawnTimer")
+
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=861798652]
+position = Vector2(0, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wvnxi")
+
+[node name="animacao" type="AnimationPlayer" parent="." unique_id=1510253953]
+libraries/ = SubResource("AnimationLibrary_4edk8")
+autoplay = &"idle"
+
+[node name="textura" type="Sprite2D" parent="." unique_id=1449191295]
+texture = ExtResource("1_x1y2f")
+offset = Vector2(0, -64)
+hframes = 4
+vframes = 3
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=1152371091]
+wait_time = 10.0
+
+[connection signal="animation_finished" from="animacao" to="." method="_on_animacao_animation_finished"]

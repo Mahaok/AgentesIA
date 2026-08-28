@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://d1gc2hn6o57ih"]
+
+[ext_resource type="Script" uid="uid://bd1v8vtd7uiag" path="res://Inimigos/TNT/dinamite.gd" id="1_dr42v"]
+[ext_resource type="Texture2D" uid="uid://bfgfn62oqqu1p" path="res://Inimigos/TNT/Dynamite.png" id="1_ojw25"]
+[ext_resource type="Texture2D" uid="uid://dh3padafbyxun" path="res://Inimigos/TNT/Explosions.png" id="2_dr42v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xudr7"]
+radius = 560.0036
+
+[sub_resource type="Animation" id="Animation_qga75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosao:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AreaDetonacao/Colisao:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_uqj3y"]
+resource_name = "dinamite"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textura:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.39999998, 0.49999997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_piigb"]
+resource_name = "explodindo"
+length = 0.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosao:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AreaDetonacao/Colisao:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnk2c"]
+_data = {
+&"RESET": SubResource("Animation_qga75"),
+&"dinamite": SubResource("Animation_uqj3y"),
+&"explodindo": SubResource("Animation_piigb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wuano"]
+radius = 40.04997
+
+[node name="Dinamite" type="Area2D" unique_id=515003202 node_paths=PackedStringArray("dinamite", "explosao", "anima", "area_detonacao")]
+script = ExtResource("1_dr42v")
+dinamite = NodePath("Textura")
+explosao = NodePath("Explosao")
+anima = NodePath("Animacao")
+area_detonacao = NodePath("AreaDetonacao")
+
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=359005115]
+show_behind_parent = true
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_xudr7")
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=330063800]
+texture = ExtResource("1_ojw25")
+offset = Vector2(0, -30)
+hframes = 6
+
+[node name="Explosao" type="Sprite2D" parent="." unique_id=1394942724]
+texture = ExtResource("2_dr42v")
+offset = Vector2(0, -30)
+hframes = 9
+
+[node name="Animacao" type="AnimationPlayer" parent="." unique_id=1394503658]
+libraries/ = SubResource("AnimationLibrary_vnk2c")
+
+[node name="ExplosaoTimer" type="Timer" parent="." unique_id=1454994677]
+
+[node name="AreaDetonacao" type="Area2D" parent="." unique_id=1702089091]
+show_behind_parent = true
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaDetonacao" unique_id=21603487]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_wuano")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Animacao" to="." method="_on_animacao_animation_finished"]
+[connection signal="timeout" from="ExplosaoTimer" to="." method="_on_explosao_timer_timeout"]
+[connection signal="body_entered" from="AreaDetonacao" to="." method="_on_area_detonacao_body_entered"]

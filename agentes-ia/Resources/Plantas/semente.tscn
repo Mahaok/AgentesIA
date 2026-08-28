@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://t40kasjnyqac"]
+
+[ext_resource type="Script" uid="uid://dwvtw4ailbel5" path="res://Resources/Plantas/semente.gd" id="1_j4cqr"]
+[ext_resource type="Texture2D" uid="uid://bj7u0s6t12f77" path="res://Resources/Plantas/Crop_Spritesheet.png" id="1_jo6hp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w10v"]
+radius = 26.076809
+
+[node name="Semente" type="Area2D" unique_id=1313395066]
+script = ExtResource("1_j4cqr")
+
+[node name="textura" type="Sprite2D" parent="." unique_id=756175836]
+scale = Vector2(3, 3)
+texture = ExtResource("1_jo6hp")
+offset = Vector2(0, 5)
+hframes = 12
+vframes = 10
+frame = 29
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1675595223]
+position = Vector2(0, 18)
+shape = SubResource("CircleShape2D_8w10v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

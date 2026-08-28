@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://rj3sxpmd7qiv"]
+
+[ext_resource type="PackedScene" uid="uid://bi6c011osxm6a" path="res://Decoration/decoracao.tscn" id="1_l3ekg"]
+
+[node name="cogumelo" unique_id=832695215 instance=ExtResource("1_l3ekg")]
+_textures_list = Array[String](["res://Decoration/cogumelo/01.png", "res://Decoration/cogumelo/02.png", "res://Decoration/cogumelo/03.png"])
