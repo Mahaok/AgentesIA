@@ -10,8 +10,8 @@ var diferenca_posicao: Vector2
 @export var canoa: CharacterBody2D
 @export var textura: Sprite2D
 
-@onready var pin_porto_inimigos = $"../Porto/PinPortoInimigos"
-@onready var pin_porto_aliados = $"../Porto/PinPortoAliados"
+@onready var pin_porto_inimigos = $"../PinPortoInimigos"
+@onready var pin_porto_aliados = $"../PinPortoAliados"
 
 func _physics_process(delta: float) -> void:
 	diferenca_posicao = get_global_mouse_position() - canoa.global_position

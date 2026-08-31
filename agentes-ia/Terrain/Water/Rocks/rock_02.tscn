@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://d18yogp5lfec5"]
+
+[ext_resource type="Script" uid="uid://bah4payn13y5t" path="res://Terrain/Water/Rocks/rock_01.gd" id="1_jvk4o"]
+[ext_resource type="Texture2D" uid="uid://vh47fpv6crb8" path="res://Terrain/Water/Rocks/Rocks_02.png" id="2_jvk4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btulv"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y65pe"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r15mo"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x7m1"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adlmv"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_defi3"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br62v"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_665cx"]
+atlas = ExtResource("2_jvk4o")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xudr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btulv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y65pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r15mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x7m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adlmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_defi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br62v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_665cx")
+}],
+"loop": 1,
+"name": &"rock01",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vkws1"]
+radius = 16.0
+height = 42.0
+
+[node name="Rock02" type="StaticBody2D" unique_id=1340056082 node_paths=PackedStringArray("textura")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_jvk4o")
+escala = Vector2(10, 10)
+textura = NodePath(".")
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=849416614]
+sprite_frames = SubResource("SpriteFrames_xudr7")
+animation = &"rock01"
+autoplay = "rock01"
+
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=225365256]
+position = Vector2(0, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vkws1")

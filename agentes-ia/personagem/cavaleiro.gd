@@ -19,6 +19,7 @@ var can_attack:bool = true
 @export var area_ataque: Area2D
 @export var area_deteccao: Area2D
 @export var walk_timer: Timer
+@export var seguir_timer: Timer
 
 func _ready() -> void:
 	wait_time = randf_range(2.0, 5.0)
@@ -26,17 +27,18 @@ func _ready() -> void:
 	walk_timer.start(wait_time)
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
+	if body.is_in_group("enemy") or body.is_in_group("character"):
 		player_ref = body
 		walk_timer.stop() # Para o timer aleatório para focar em seguir o player
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
+	if body.is_in_group("enemy") or body.is_in_group("character"):
 		player_ref = null
 		velocity = Vector2.ZERO
 		wait_time = randf_range(2.0, 5.0)
 		direction = get_direction()
 		walk_timer.start(wait_time) # Reinicia o comportamento aleatório
+
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -62,7 +64,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	animate()
 	attack()
-	
+	seguir()
+
+func seguir() -> void:
+	if distance <= 64 and distance != 0 and player_ref != null and player_ref.is_in_group("character"):
+		sprite.play("idle")
+		direction = Vector2.ZERO
+		seguir_timer.start()
+		set_physics_process(false)
+
+func _on_seguir_timer_timeout() -> void:
+	set_physics_process(true)
+
 func animate() -> void:
 	if velocity.x > 0:
 		sprite.flip_h = false
@@ -82,13 +95,13 @@ func attack() -> void:
 	# Se estiver morto, nem tenta atacar
 	if is_dead:
 		return
-	if distance <= 64 and distance != 0 and player_ref != null:
+	if distance <= 64 and distance != 0 and player_ref != null and player_ref.is_in_group("enemy"):
 		can_attack = false
 		anima.play("attack")
 		set_physics_process(false)
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("character") or body.is_in_group("enemy"):
+	if body.is_in_group("enemy"):
 		body.update_health()
 
 func update_health() -> void:

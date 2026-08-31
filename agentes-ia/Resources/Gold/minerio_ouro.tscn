@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://c6wqnlwsh3ijn"]
+
+[ext_resource type="Script" uid="uid://bqqwmyg0wmjyn" path="res://Resources/Gold/minerio_ouro.gd" id="1_4v2ph"]
+[ext_resource type="Texture2D" uid="uid://bo7a8pmng4a8l" path="res://Resources/Gold/Gold Stones/Gold Stone 6_Highlight.png" id="1_pjjul"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v2ph"]
+atlas = ExtResource("1_pjjul")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1x6f"]
+atlas = ExtResource("1_pjjul")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucjd5"]
+atlas = ExtResource("1_pjjul")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcvu5"]
+atlas = ExtResource("1_pjjul")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0550g"]
+atlas = ExtResource("1_pjjul")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy0hd"]
+atlas = ExtResource("1_pjjul")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xudr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v2ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1x6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucjd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcvu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0550g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy0hd")
+}],
+"loop": 0,
+"name": &"shine",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_326y8"]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wuano"]
+radius = 244.73863
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fef1n"]
+radius = 31.0
+height = 88.0
+
+[node name="MinerioOuro" type="StaticBody2D" unique_id=340267077 node_paths=PackedStringArray("textura", "colisao") groups=["minerio"]]
+script = ExtResource("1_4v2ph")
+textura = NodePath("Textura")
+colisao = NodePath("Colisao")
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=358281336]
+sprite_frames = SubResource("SpriteFrames_xudr7")
+animation = &"shine"
+
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=175526070]
+show_behind_parent = true
+position = Vector2(0, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_326y8")
+
+[node name="AreaEncontro" type="Area2D" parent="." unique_id=40418322]
+show_behind_parent = true
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaEncontro" unique_id=583620504]
+shape = SubResource("CircleShape2D_wuano")
+
+[node name="AreaMineracao" type="Area2D" parent="." unique_id=876852580]
+show_behind_parent = true
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaMineracao" unique_id=235582429]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fef1n")
+debug_color = Color(0.18654856, 0.64264786, 0, 0.41960785)
+
+[connection signal="body_entered" from="AreaEncontro" to="." method="_on_area_encontro_body_entered"]
+[connection signal="body_entered" from="AreaMineracao" to="." method="_on_area_mineracao_body_entered"]

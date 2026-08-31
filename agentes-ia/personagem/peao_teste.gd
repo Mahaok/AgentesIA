@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Peao
 
+var can_mine: bool = false
+
 var is_dead: bool = false
 var can_attack:bool = true
 var attack_animation_name: String = ""
@@ -42,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	move()
 	attack()
 	animate()
+	mine()
 	
 func move() -> void:
 	var direction:Vector2 = Input.get_vector("left","right","up","down").normalized()
@@ -79,7 +82,7 @@ func attack() -> void:
 		set_physics_process(false)
 
 func _on_animacao_finished(anim_name: StringName) -> void:
-	if anim_name == "attack_axe" or anim_name == "attack_hammer":
+	if anim_name == "attack_axe" or anim_name == "attack_hammer" or anim_name == "mine":
 		can_attack = true
 		set_physics_process(true)
 		
@@ -94,5 +97,12 @@ func update_health() -> void:
 	health -= 0.1
 	if health <= 0:
 		is_dead = true
-	
-	
+
+func mine() -> void:
+	if Input.is_action_pressed("interagir") and can_mine:
+		animacao.play("mine")
+		set_physics_process(false)
+
+func _on_mine_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("minerio"):
+		body.update_health()

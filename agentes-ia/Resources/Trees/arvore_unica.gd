@@ -24,28 +24,17 @@ var is_dead: bool = false
 func _ready() -> void:
 	health = randi_range(min_health, max_health)
 	anima.play("",-1.0,random_speed)
-#func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("reseta"):
-		#destroy()
-		#respawn()
 		
 func destroy() -> void:
 	for child in get_children():
 		child.queue_free()
-	#if self.get_child_count() > 0:
-		#self.get_child(0).queue_free()
 
 func respawn() -> void:
 	await get_tree().create_timer(5.0).timeout
 	var nova_arvore = arvore.instantiate()
 	add_child(nova_arvore)
-	#var arvore_instance = arvore.instantiate()
-	#self.add_child(arvore_instance)
 
 func update_health(damage_range: Array) -> void: #[1, 5]
-	#if is_dead:
-		#return
-		
 	health -= randi_range(
 		damage_range[0],
 		damage_range[1]
@@ -68,7 +57,6 @@ func spawn_wood() -> void:
 		wood.global_position = global_position + Vector2(
 			randi_range(-32, 32), randi_range(-32, 32)
 		)
-		
 		get_tree().root.call_deferred("add_child", wood)
 		
 func _on_animacao_animation_finished(anim_name: StringName) -> void:

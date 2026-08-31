@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://48cp1852fcs8" path="res://personagem/Pawn/Pawn_Interact Hammer.png" id="3_wtu36"]
 [ext_resource type="Script" uid="uid://cdbgbub8hko3n" path="res://personagem/camera_2d.gd" id="3_wukgv"]
 [ext_resource type="Script" uid="uid://x877bev0rgob" path="res://personagem/segura_info.gd" id="4_5cye2"]
+[ext_resource type="Texture2D" uid="uid://bmm66w0filky0" path="res://personagem/Pawn/Pawn_Interact Pickaxe.png" id="5_2dvrc"]
 [ext_resource type="Texture2D" uid="uid://bj7u0s6t12f77" path="res://Resources/Plantas/Crop_Spritesheet.png" id="5_wtu36"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jykj5"]
@@ -76,6 +77,30 @@ region = Rect2(1152, 0, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_07cn6"]
 atlas = ExtResource("2_8fqoh")
 region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mh3k"]
+atlas = ExtResource("5_2dvrc")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm00i"]
+atlas = ExtResource("5_2dvrc")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwdat"]
+atlas = ExtResource("5_2dvrc")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xvpk"]
+atlas = ExtResource("5_2dvrc")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c66jq"]
+atlas = ExtResource("5_2dvrc")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2plr"]
+atlas = ExtResource("5_2dvrc")
+region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nuv2"]
 atlas = ExtResource("3_8fqoh")
@@ -171,6 +196,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2mh3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm00i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwdat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xvpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c66jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2plr")
+}],
+"loop": 0,
+"name": &"mine",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0nuv2")
 }, {
 "duration": 1.0,
@@ -218,6 +266,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"attack_axe"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MineArea/Colisao:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Textura:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mine"]
 }
 
 [sub_resource type="Animation" id="Animation_ujdcl"]
@@ -324,6 +396,49 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_wtu36"]
+resource_name = "mine"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MineArea/Colisao:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textura:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mine"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Textura")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_2crpa"]
 resource_name = "parado"
 length = 0.8
@@ -348,6 +463,7 @@ _data = {
 &"andando": SubResource("Animation_ujdcl"),
 &"attack_axe": SubResource("Animation_cjfgl"),
 &"attack_hammer": SubResource("Animation_qgf6f"),
+&"mine": SubResource("Animation_wtu36"),
 &"parado": SubResource("Animation_2crpa")
 }
 
@@ -366,6 +482,10 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w10v"]
 radius = 29.017237
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wuano"]
+radius = 16.0
+height = 58.0
+
 [node name="PeaoTeste" type="CharacterBody2D" unique_id=1903019137 node_paths=PackedStringArray("textura", "animacao", "attack_area_collision", "display_tomate", "display_melancia") groups=["character"]]
 motion_mode = 1
 platform_on_leave = 2
@@ -382,7 +502,7 @@ display_melancia = NodePath("DisplayMelancia")
 
 [node name="Textura" type="AnimatedSprite2D" parent="." unique_id=620463272]
 sprite_frames = SubResource("SpriteFrames_xudr7")
-animation = &"attack_axe"
+animation = &"mine"
 autoplay = "idle"
 offset = Vector2(0, -30)
 
@@ -430,6 +550,15 @@ label_settings = SubResource("LabelSettings_xudr7")
 shape = SubResource("CircleShape2D_8w10v")
 disabled = true
 
+[node name="MineArea" type="Area2D" parent="." unique_id=1489772087]
+show_behind_parent = true
+
+[node name="Colisao" type="CollisionShape2D" parent="MineArea" unique_id=289342284]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wuano")
+disabled = true
+debug_color = Color(0.5837682, 0.55034715, 0.046595052, 0.41960785)
+
 [node name="DisplayTomate" type="Sprite2D" parent="." unique_id=1372597222 groups=["plantas"]]
 visible = false
 position = Vector2(0, -69)
@@ -450,3 +579,4 @@ frame = 30
 
 [connection signal="animation_finished" from="animacao" to="." method="_on_animacao_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="MineArea" to="." method="_on_mine_area_body_entered"]
