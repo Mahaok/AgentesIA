@@ -925,12 +925,6 @@ sources/0 = SubResource("TileSetAtlasSource_vgy50")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w10v"]
 size = Vector2(445.5, 90)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cir6"]
-size = Vector2(579, 104)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ae0t"]
-size = Vector2(764.5, 96)
-
 [node name="Principal" type="Node2D" unique_id=1206609539 node_paths=PackedStringArray("fazendeiro", "area_plantio")]
 script = ExtResource("1_fguqk")
 fazendeiro = NodePath("ordem_de_colisoes/PeaoTeste")
@@ -969,7 +963,7 @@ tile_set = SubResource("TileSet_xudr7")
 
 [node name="plantacao" type="TileMapLayer" parent="Mapa" unique_id=2089918637]
 scale = Vector2(1.185, 1.185)
-tile_map_data = PackedByteArray("AAAUAAwAAAAAAAMAAAAUAA0AAAAAAAQAAAAUAA4AAAAAAAUAAAAVAAwAAAABAAMAAAAVAA0AAAABAAQAAAAVAA4AAAABAAUAAAAWAAwAAAABAAMAAAAWAA0AAAABAAQAAAAWAA4AAAABAAUAAAAXAAwAAAABAAMAAAAXAA0AAAABAAQAAAAXAA4AAAABAAUAAAAYAAwAAAABAAMAAAAYAA0AAAABAAQAAAAYAA4AAAABAAUAAAAZAAwAAAABAAMAAAAZAA0AAAABAAQAAAAZAA4AAAABAAUAAAAaAA4AAAACAAUAAAAaAAwAAAACAAMAAAAaAA0AAAACAAQAAAAUAA8AAAAAAAMAAAAVAA8AAAABAAMAAAAWAA8AAAABAAMAAAAXAA8AAAABAAMAAAAYAA8AAAABAAMAAAAZAA8AAAABAAMAAAAaAA8AAAABAAMAAAAbAA8AAAABAAMAAAAcAA8AAAACAAMAAAAcABAAAAACAAQAAAAbABAAAAABAAQAAAAaABAAAAABAAQAAAAZABAAAAABAAQAAAAYABAAAAABAAQAAAAXABAAAAABAAQAAAAWABAAAAABAAQAAAAVABAAAAABAAQAAAAUABAAAAAAAAQAAAAUABEAAAAAAAUAAAAVABEAAAABAAUAAAAWABEAAAABAAUAAAAXABEAAAABAAUAAAAYABEAAAABAAUAAAAZABEAAAABAAUAAAAaABEAAAABAAUAAAAbABEAAAABAAUAAAAcABEAAAACAAUAAAAUABIAAAAAAAMAAAAUABMAAAAAAAQAAAAUABQAAAAAAAUAAAAVABQAAAABAAUAAAAWABQAAAABAAUAAAAXABQAAAABAAUAAAAYABQAAAABAAUAAAAZABQAAAABAAUAAAAaABQAAAABAAUAAAAbABQAAAABAAUAAAAcABQAAAABAAUAAAAdABQAAAABAAUAAAAeABQAAAABAAUAAAAfABQAAAACAAUAAAAVABIAAAABAAMAAAAWABIAAAABAAMAAAAXABIAAAABAAMAAAAYABIAAAABAAMAAAAZABIAAAABAAMAAAAaABIAAAABAAMAAAAbABIAAAABAAMAAAAcABIAAAABAAMAAAAdABIAAAABAAMAAAAeABIAAAABAAMAAAAfABIAAAACAAMAAAAfABMAAAACAAQAAAAeABMAAAABAAQAAAAdABMAAAABAAQAAAAcABMAAAABAAQAAAAbABMAAAABAAQAAAAaABMAAAABAAQAAAAZABMAAAABAAQAAAAYABMAAAABAAQAAAAXABMAAAABAAQAAAAWABMAAAABAAQAAAAVABMAAAABAAQAAAA=")
+tile_map_data = PackedByteArray("AAAUAAwAAAAAAAMAAAAUAA0AAAAAAAQAAAAUAA4AAAAAAAUAAAAVAAwAAAABAAMAAAAVAA0AAAABAAQAAAAVAA4AAAABAAUAAAAWAAwAAAABAAMAAAAWAA0AAAABAAQAAAAWAA4AAAABAAUAAAAXAAwAAAABAAMAAAAXAA0AAAABAAQAAAAXAA4AAAABAAUAAAAYAAwAAAABAAMAAAAYAA0AAAABAAQAAAAYAA4AAAABAAUAAAAZAAwAAAABAAMAAAAZAA0AAAABAAQAAAAZAA4AAAABAAUAAAAaAA4AAAACAAUAAAAaAAwAAAACAAMAAAAaAA0AAAACAAQAAAA=")
 tile_set = SubResource("TileSet_x6joi")
 
 [node name="elevacao1" type="TileMapLayer" parent="Mapa" unique_id=1183284090]
@@ -998,7 +992,6 @@ tile_set = SubResource("TileSet_x2uvw")
 
 [node name="Cerca" type="TileMapLayer" parent="Mapa" unique_id=297016619]
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAgAAMAAAACAAcAAAAgAAQAAAACAAgAAAAgAAUAAAACAAgAAAAgAAYAAAACAAgAAAAgAAcAAAACAAgAAAAgAAgAAAACAAgAAAAgAAkAAAABAAcAAAAhAAkAAAACAAcAAAAhAAoAAAACAAgAAAAhAAsAAAACAAgAAAAhAAwAAAACAAgAAAAhAA0AAAACAAgAAAAhAA4AAAACAAkAAAAgAA4AAAABAAkAAAAfAA4AAAABAAkAAAAeAA4AAAABAAkAAAAdAA4AAAABAAkAAAAcAA4AAAABAAkAAAAfAAMAAAABAAkAAAAeAAMAAAABAAkAAAAdAAMAAAABAAkAAAAcAAMAAAABAAkAAAAbAAMAAAAAAAcAAAAbAAQAAAAAAAgAAAAbAAUAAAAAAAgAAAAbAAYAAAAAAAgAAAAbAAcAAAAAAAgAAAAbAAgAAAABAAgAAAAbAAwAAAAAAAgAAAAbAA4AAAAAAAkAAAAbAA0AAAAAAAgAAAA=")
 tile_set = SubResource("TileSet_wpolw")
 
 [node name="AreaCamada1" type="Area2D" parent="Mapa" unique_id=1635411845]
@@ -1137,7 +1130,7 @@ y_sort_enabled = true
 position = Vector2(103, 0)
 
 [node name="PeaoTeste" parent="ordem_de_colisoes" unique_id=1613377637 instance=ExtResource("17_b14it")]
-position = Vector2(-39, 1288)
+position = Vector2(504, 1408)
 
 [node name="Construcoes" type="Node2D" parent="ordem_de_colisoes" unique_id=1305883369]
 y_sort_enabled = true
@@ -1152,10 +1145,10 @@ tile_map_data = PackedByteArray("AAAPAAMAAAACAAMAAAA=")
 tile_set = SubResource("TileSet_hkg3b")
 
 [node name="Torre" parent="ordem_de_colisoes/Construcoes" unique_id=1163288277 instance=ExtResource("23_5e73i")]
-position = Vector2(57, 768)
+position = Vector2(-59, 906)
 
 [node name="Torre2" parent="ordem_de_colisoes/Construcoes" unique_id=14490673 instance=ExtResource("23_5e73i")]
-position = Vector2(697, 768)
+position = Vector2(1142, 1498.0001)
 
 [node name="Pedras" type="Node2D" parent="ordem_de_colisoes" unique_id=719821560]
 y_sort_enabled = true
@@ -2917,7 +2910,7 @@ position = Vector2(-6735, 7768)
 position = Vector2(-6543, 7712)
 
 [node name="MinerioOuro29" parent="ordem_de_colisoes/Minerios" unique_id=219249267 instance=ExtResource("32_fef1n")]
-position = Vector2(-6391, 7856)
+position = Vector2(-6386, 7888)
 
 [node name="MinerioOuro30" parent="ordem_de_colisoes/Minerios" unique_id=487192292 instance=ExtResource("32_fef1n")]
 position = Vector2(-5767, 7584)
@@ -2938,7 +2931,7 @@ position = Vector2(-5791, 7704)
 position = Vector2(-5639, 7848)
 
 [node name="MinerioOuro36" parent="ordem_de_colisoes/Minerios" unique_id=517619653 instance=ExtResource("32_fef1n")]
-position = Vector2(-5799, 7776)
+position = Vector2(-5820, 7811)
 
 [node name="MinerioOuro37" parent="ordem_de_colisoes/Minerios" unique_id=1684388314 instance=ExtResource("32_fef1n")]
 position = Vector2(-5191, 7552)
@@ -3013,10 +3006,10 @@ position = Vector2(-7399, 7096)
 position = Vector2(-7527, 7024)
 
 [node name="MinerioOuro61" parent="ordem_de_colisoes/Minerios" unique_id=667739296 instance=ExtResource("32_fef1n")]
-position = Vector2(-7695, 7240)
+position = Vector2(-7654, 7264)
 
 [node name="MinerioOuro62" parent="ordem_de_colisoes/Minerios" unique_id=96873987 instance=ExtResource("32_fef1n")]
-position = Vector2(-7759, 7144)
+position = Vector2(-7714, 7175)
 
 [node name="MinerioOuro63" parent="ordem_de_colisoes/Minerios" unique_id=853865941 instance=ExtResource("32_fef1n")]
 position = Vector2(-7231, 7472)
@@ -3072,7 +3065,7 @@ y_sort_enabled = true
 position = Vector2(-103, 0)
 
 [node name="ovelha" parent="ordem_de_colisoes/Animais/ovelhas" unique_id=1180565427 instance=ExtResource("15_3fks5")]
-position = Vector2(2264, 128)
+position = Vector2(1774, 212)
 
 [node name="ovelha3" parent="ordem_de_colisoes/Animais/ovelhas" unique_id=1162043643 instance=ExtResource("15_3fks5")]
 position = Vector2(669, 211)
@@ -3084,7 +3077,7 @@ y_sort_enabled = true
 position = Vector2(156, 81)
 
 [node name="Galinha3" parent="ordem_de_colisoes/Animais/galinhas" unique_id=1137490856 instance=ExtResource("17_523m1")]
-position = Vector2(1337, 296)
+position = Vector2(1106, 511)
 
 [node name="Vacas" type="Node2D" parent="ordem_de_colisoes/Animais" unique_id=969286673]
 y_sort_enabled = true
@@ -3093,7 +3086,7 @@ y_sort_enabled = true
 position = Vector2(-87, 529)
 
 [node name="Vaca2" parent="ordem_de_colisoes/Animais/Vacas" unique_id=187810199 instance=ExtResource("19_a8tay")]
-position = Vector2(1026, 1083)
+position = Vector2(719, 819)
 
 [node name="Inimigos" type="Node2D" parent="ordem_de_colisoes" unique_id=623862843]
 y_sort_enabled = true
@@ -3105,7 +3098,7 @@ position = Vector2(-7583, 5552)
 position = Vector2(-8271, 5824)
 
 [node name="Slime3" parent="ordem_de_colisoes/Inimigos" unique_id=1071666234 instance=ExtResource("20_bn4ct")]
-position = Vector2(-7039, 4952)
+position = Vector2(-7165, 5033)
 
 [node name="Goblin" parent="ordem_de_colisoes/Inimigos" unique_id=934119050 instance=ExtResource("21_523m1")]
 position = Vector2(-5503, 4488)
@@ -3117,7 +3110,7 @@ position = Vector2(-6047, 4856)
 position = Vector2(-6471, 5376)
 
 [node name="TNT" parent="ordem_de_colisoes/Inimigos" unique_id=965667395 instance=ExtResource("22_22hpo")]
-position = Vector2(-6311, 6112)
+position = Vector2(-6376, 6090)
 
 [node name="TNT2" parent="ordem_de_colisoes/Inimigos" unique_id=2047563084 instance=ExtResource("22_22hpo")]
 position = Vector2(-6583, 4640)
@@ -3381,7 +3374,7 @@ position = Vector2(2353, 1040)
 position = Vector2(1946, 1120)
 
 [node name="arvore_unica90" parent="ordem_de_colisoes/arvores" unique_id=1221783014 instance=ExtResource("6_oafyw")]
-position = Vector2(1057, 1488)
+position = Vector2(973, 1375)
 
 [node name="arvore_unica88" parent="ordem_de_colisoes/arvores" unique_id=368171378 instance=ExtResource("6_oafyw")]
 position = Vector2(1993, 1317)
@@ -3485,14 +3478,6 @@ position = Vector2(689, 160)
 [node name="ColisaoPlantio" type="CollisionShape2D" parent="AreaDePlantio/AreaPlantio" unique_id=1426584361]
 position = Vector2(1502.25, 861)
 shape = SubResource("RectangleShape2D_8w10v")
-
-[node name="ColisaoPlantio2" type="CollisionShape2D" parent="AreaDePlantio/AreaPlantio" unique_id=1239232546]
-position = Vector2(1565.5, 1052)
-shape = SubResource("RectangleShape2D_7cir6")
-
-[node name="ColisaoPlantio3" type="CollisionShape2D" parent="AreaDePlantio/AreaPlantio" unique_id=512865445]
-position = Vector2(1662.75, 1248)
-shape = SubResource("RectangleShape2D_4ae0t")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1876872450]
 position = Vector2(-2088, 2960)
