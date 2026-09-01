@@ -2,6 +2,81 @@
 
 [ext_resource type="Script" uid="uid://bqqwmyg0wmjyn" path="res://Resources/Gold/minerio_ouro.gd" id="1_4v2ph"]
 [ext_resource type="Texture2D" uid="uid://bo7a8pmng4a8l" path="res://Resources/Gold/Gold Stones/Gold Stone 6_Highlight.png" id="1_pjjul"]
+[ext_resource type="Texture2D" uid="uid://bgmwtbo6c6gul" path="res://Resources/Gold/Gold Stones/Gold Stone 5_Highlight.png" id="2_f1x6f"]
+[ext_resource type="Texture2D" uid="uid://cbnljgullwt4v" path="res://Resources/Gold/Gold Stones/Gold Stone 3_Highlight.png" id="2_lcvu5"]
+[ext_resource type="Texture2D" uid="uid://d4m2m8oxdcrm1" path="res://Resources/Gold/Gold Stones/Gold Stone 4_Highlight.png" id="3_0550g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo33m"]
+atlas = ExtResource("2_lcvu5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hps8m"]
+atlas = ExtResource("2_lcvu5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m2j0"]
+atlas = ExtResource("2_lcvu5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnupa"]
+atlas = ExtResource("2_lcvu5")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb06h"]
+atlas = ExtResource("2_lcvu5")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smvar"]
+atlas = ExtResource("2_lcvu5")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu51l"]
+atlas = ExtResource("3_0550g")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8ey5"]
+atlas = ExtResource("3_0550g")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nmc7"]
+atlas = ExtResource("3_0550g")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pjqr"]
+atlas = ExtResource("3_0550g")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dalg8"]
+atlas = ExtResource("3_0550g")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lbaw"]
+atlas = ExtResource("3_0550g")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srjtq"]
+atlas = ExtResource("2_f1x6f")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcdjd"]
+atlas = ExtResource("2_f1x6f")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0bq2"]
+atlas = ExtResource("2_f1x6f")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_molnj"]
+atlas = ExtResource("2_f1x6f")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxnen"]
+atlas = ExtResource("2_f1x6f")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0emi5"]
+atlas = ExtResource("2_f1x6f")
+region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v2ph"]
 atlas = ExtResource("1_pjjul")
@@ -31,6 +106,75 @@ region = Rect2(640, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vo33m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hps8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m2j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnupa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb06h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smvar")
+}],
+"loop": 0,
+"name": &"shine01",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu51l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8ey5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nmc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pjqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dalg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lbaw")
+}],
+"loop": 0,
+"name": &"shine02",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srjtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcdjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0bq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_molnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxnen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0emi5")
+}],
+"loop": 0,
+"name": &"shine03",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4v2ph")
 }, {
 "duration": 1.0,
@@ -49,29 +193,30 @@ animations = [{
 "texture": SubResource("AtlasTexture_qy0hd")
 }],
 "loop": 0,
-"name": &"shine",
+"name": &"shine04",
 "speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_326y8"]
 radius = 24.0
-height = 80.0
+height = 74.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wuano"]
-radius = 244.73863
+radius = 177.10167
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fef1n"]
 radius = 31.0
 height = 88.0
 
-[node name="MinerioOuro" type="StaticBody2D" unique_id=340267077 node_paths=PackedStringArray("textura", "colisao") groups=["minerio"]]
+[node name="MinerioOuro" type="StaticBody2D" unique_id=340267077 node_paths=PackedStringArray("minerio_ouro", "textura", "colisao") groups=["minerio"]]
 script = ExtResource("1_4v2ph")
+minerio_ouro = NodePath(".")
 textura = NodePath("Textura")
 colisao = NodePath("Colisao")
 
 [node name="Textura" type="AnimatedSprite2D" parent="." unique_id=358281336]
 sprite_frames = SubResource("SpriteFrames_xudr7")
-animation = &"shine"
+animation = &"shine04"
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=175526070]
 show_behind_parent = true
@@ -80,12 +225,14 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_326y8")
 
 [node name="AreaEncontro" type="Area2D" parent="." unique_id=40418322]
+visible = false
 show_behind_parent = true
 
 [node name="Colisao" type="CollisionShape2D" parent="AreaEncontro" unique_id=583620504]
 shape = SubResource("CircleShape2D_wuano")
 
 [node name="AreaMineracao" type="Area2D" parent="." unique_id=876852580]
+visible = false
 show_behind_parent = true
 
 [node name="Colisao" type="CollisionShape2D" parent="AreaMineracao" unique_id=235582429]

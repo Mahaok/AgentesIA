@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bjsnjk622il8l"]
+
+[ext_resource type="Script" uid="uid://dvpw74b325eom" path="res://Resources/Gold/ouro.gd" id="1_1giu7"]
+[ext_resource type="Texture2D" uid="uid://baer0bp0beulw" path="res://Resources/Gold/Gold Resource/Gold_Resource_Highlight.png" id="1_4xxs2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1giu7"]
+atlas = ExtResource("1_4xxs2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4205"]
+atlas = ExtResource("1_4xxs2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2xj3"]
+atlas = ExtResource("1_4xxs2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjteg"]
+atlas = ExtResource("1_4xxs2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyar7"]
+atlas = ExtResource("1_4xxs2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srium"]
+atlas = ExtResource("1_4xxs2")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xudr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1giu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4205")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2xj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjteg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyar7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srium")
+}],
+"loop": 0,
+"name": &"ouro",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr7rl"]
+radius = 13.8067
+
+[node name="Ouro" type="Area2D" unique_id=491252216]
+script = ExtResource("1_1giu7")
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=909900297]
+sprite_frames = SubResource("SpriteFrames_xudr7")
+animation = &"ouro"
+autoplay = "ouro"
+
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=1893052802]
+show_behind_parent = true
+shape = SubResource("CircleShape2D_cr7rl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

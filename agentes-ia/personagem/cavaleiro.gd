@@ -72,10 +72,14 @@ func seguir() -> void:
 		direction = Vector2.ZERO
 		seguir_timer.start()
 		set_physics_process(false)
-
+	
 func _on_seguir_timer_timeout() -> void:
-	set_physics_process(true)
-
+	if player_ref != null:
+		distance = global_position.distance_to(player_ref.global_position)
+		seguir_timer.start()
+	if distance > 128 or player_ref == null:
+			set_physics_process(true)
+	
 func animate() -> void:
 	if velocity.x > 0:
 		sprite.flip_h = false
