@@ -40,8 +40,13 @@
 [ext_resource type="PackedScene" uid="uid://cfg8daw75oj8a" path="res://Buildings/Red Buildings/igreja.tscn" id="22_pcgts"]
 [ext_resource type="PackedScene" uid="uid://syog6x23eu5x" path="res://Resources/Trees/arvore_branca.tscn" id="22_tar6r"]
 [ext_resource type="PackedScene" uid="uid://dl2trex8gjkf" path="res://Buildings/Red Buildings/torre.tscn" id="23_5e73i"]
+[ext_resource type="PackedScene" uid="uid://c6aqa7ycf0171" path="res://Buildings/Canoa/vela.tscn" id="23_stnrs"]
+[ext_resource type="Script" uid="uid://bmlb5ah61u63o" path="res://Buildings/Canoa/vela.gd" id="24_crnhd"]
+[ext_resource type="PackedScene" uid="uid://cmtslo7d74mei" path="res://Buildings/Red Buildings/casa_frontal.tscn" id="26_67lvv"]
+[ext_resource type="PackedScene" uid="uid://dra2femyix3j7" path="res://Buildings/Red Buildings/casa_diagonal.tscn" id="27_tjy7n"]
 [ext_resource type="PackedScene" uid="uid://wf8ficnd61hd" path="res://personagem/cavaleiro.tscn" id="28_b14it"]
 [ext_resource type="Texture2D" uid="uid://bu4evuepmkh05" path="res://Terrain/Bridge/Bridge_All.png" id="29_dodfg"]
+[ext_resource type="PackedScene" uid="uid://co0gtsm4abcfa" path="res://Resources/Gold/meteoro_ouro.tscn" id="31_mow1a"]
 [ext_resource type="PackedScene" uid="uid://c6wqnlwsh3ijn" path="res://Resources/Gold/minerio_ouro.tscn" id="32_fef1n"]
 [ext_resource type="PackedScene" uid="uid://nupki7n00b55" path="res://personagem/padre.tscn" id="32_geoib"]
 [ext_resource type="PackedScene" uid="uid://cmn7w410yrpek" path="res://personagem/lanceiro.tscn" id="33_phhyy"]
@@ -1130,7 +1135,12 @@ y_sort_enabled = true
 position = Vector2(103, 0)
 
 [node name="PeaoTeste" parent="ordem_de_colisoes" unique_id=1613377637 instance=ExtResource("17_b14it")]
-position = Vector2(504, 1408)
+position = Vector2(337, 1368)
+
+[node name="Vela" parent="ordem_de_colisoes" unique_id=763306482 node_paths=PackedStringArray("vela") instance=ExtResource("23_stnrs")]
+position = Vector2(-95, 1776)
+script = ExtResource("24_crnhd")
+vela = NodePath(".")
 
 [node name="Construcoes" type="Node2D" parent="ordem_de_colisoes" unique_id=1305883369]
 y_sort_enabled = true
@@ -1149,6 +1159,19 @@ position = Vector2(-59, 906)
 
 [node name="Torre2" parent="ordem_de_colisoes/Construcoes" unique_id=14490673 instance=ExtResource("23_5e73i")]
 position = Vector2(1142, 1498.0001)
+
+[node name="CasaFrontal" parent="ordem_de_colisoes/Construcoes" unique_id=587915932 instance=ExtResource("26_67lvv")]
+position = Vector2(761, -288)
+
+[node name="CasaFrontal3" parent="ordem_de_colisoes/Construcoes" unique_id=1911962298 instance=ExtResource("26_67lvv")]
+position = Vector2(1401, 696)
+
+[node name="CasaDiagonal" parent="ordem_de_colisoes/Construcoes" unique_id=982969943 instance=ExtResource("27_tjy7n")]
+position = Vector2(761, 96)
+
+[node name="CasaDiagonal2" parent="ordem_de_colisoes/Construcoes" unique_id=1080312022 instance=ExtResource("27_tjy7n")]
+position = Vector2(153, 96.00001)
+scale = Vector2(-1.5, 1.5)
 
 [node name="Pedras" type="Node2D" parent="ordem_de_colisoes" unique_id=719821560]
 y_sort_enabled = true
@@ -2826,40 +2849,40 @@ position = Vector2(-10344, 3064)
 y_sort_enabled = true
 
 [node name="MinerioOuro" parent="ordem_de_colisoes/Minerios" unique_id=340267077 instance=ExtResource("32_fef1n")]
-position = Vector2(-8311, 6984)
+position = Vector2(-7087, 6960)
 
 [node name="MinerioOuro2" parent="ordem_de_colisoes/Minerios" unique_id=213747611 instance=ExtResource("32_fef1n")]
-position = Vector2(-8055, 7064)
+position = Vector2(-7607, 6536)
 
 [node name="MinerioOuro3" parent="ordem_de_colisoes/Minerios" unique_id=665997595 instance=ExtResource("32_fef1n")]
-position = Vector2(-8143, 6928)
+position = Vector2(-7151, 6752)
 
 [node name="MinerioOuro4" parent="ordem_de_colisoes/Minerios" unique_id=221577610 instance=ExtResource("32_fef1n")]
-position = Vector2(-8343, 6776)
+position = Vector2(-7207, 6560)
 
 [node name="MinerioOuro5" parent="ordem_de_colisoes/Minerios" unique_id=1920230620 instance=ExtResource("32_fef1n")]
-position = Vector2(-8503, 6832)
+position = Vector2(-7367, 6744)
 
 [node name="MinerioOuro6" parent="ordem_de_colisoes/Minerios" unique_id=2005546423 instance=ExtResource("32_fef1n")]
-position = Vector2(-5287, 7736)
+position = Vector2(-5295, 7560)
 
 [node name="MinerioOuro7" parent="ordem_de_colisoes/Minerios" unique_id=647930772 instance=ExtResource("32_fef1n")]
-position = Vector2(-5247, 7832)
+position = Vector2(-5135, 7704)
 
 [node name="MinerioOuro8" parent="ordem_de_colisoes/Minerios" unique_id=1944281645 instance=ExtResource("32_fef1n")]
-position = Vector2(-5367, 7848)
+position = Vector2(-5359, 7768)
 
 [node name="MinerioOuro9" parent="ordem_de_colisoes/Minerios" unique_id=429630401 instance=ExtResource("32_fef1n")]
-position = Vector2(-5167, 7720)
+position = Vector2(-5079, 7536)
 
 [node name="MinerioOuro10" parent="ordem_de_colisoes/Minerios" unique_id=1743471439 instance=ExtResource("32_fef1n")]
 position = Vector2(-5399, 7936)
 
 [node name="MinerioOuro11" parent="ordem_de_colisoes/Minerios" unique_id=582922232 instance=ExtResource("32_fef1n")]
-position = Vector2(-6359, 7664)
+position = Vector2(-6639, 7464)
 
 [node name="MinerioOuro12" parent="ordem_de_colisoes/Minerios" unique_id=1542971688 instance=ExtResource("32_fef1n")]
-position = Vector2(-5951, 7864)
+position = Vector2(-6703, 7280)
 
 [node name="MinerioOuro13" parent="ordem_de_colisoes/Minerios" unique_id=1342070605 instance=ExtResource("32_fef1n")]
 position = Vector2(-6087, 7888)
@@ -2880,16 +2903,16 @@ position = Vector2(-6855, 7576)
 position = Vector2(-7039, 7584)
 
 [node name="MinerioOuro19" parent="ordem_de_colisoes/Minerios" unique_id=1137720283 instance=ExtResource("32_fef1n")]
-position = Vector2(-6679, 7544)
+position = Vector2(-6847, 7144)
 
 [node name="MinerioOuro20" parent="ordem_de_colisoes/Minerios" unique_id=1757745977 instance=ExtResource("32_fef1n")]
 position = Vector2(-6887, 7728)
 
 [node name="MinerioOuro21" parent="ordem_de_colisoes/Minerios" unique_id=1873173058 instance=ExtResource("32_fef1n")]
-position = Vector2(-6223, 7600)
+position = Vector2(-6231, 7240)
 
 [node name="MinerioOuro22" parent="ordem_de_colisoes/Minerios" unique_id=587791431 instance=ExtResource("32_fef1n")]
-position = Vector2(-6199, 7776)
+position = Vector2(-6295, 7616)
 
 [node name="MinerioOuro23" parent="ordem_de_colisoes/Minerios" unique_id=658584356 instance=ExtResource("32_fef1n")]
 position = Vector2(-6383, 7784)
@@ -2904,146 +2927,149 @@ position = Vector2(-6231, 7928)
 position = Vector2(-6519, 7592)
 
 [node name="MinerioOuro27" parent="ordem_de_colisoes/Minerios" unique_id=138637446 instance=ExtResource("32_fef1n")]
-position = Vector2(-6735, 7768)
+position = Vector2(-5807, 6704)
 
 [node name="MinerioOuro28" parent="ordem_de_colisoes/Minerios" unique_id=1928886811 instance=ExtResource("32_fef1n")]
-position = Vector2(-6543, 7712)
+position = Vector2(-6703, 7608)
 
 [node name="MinerioOuro29" parent="ordem_de_colisoes/Minerios" unique_id=219249267 instance=ExtResource("32_fef1n")]
-position = Vector2(-6386, 7888)
+position = Vector2(-6223, 6792)
 
 [node name="MinerioOuro30" parent="ordem_de_colisoes/Minerios" unique_id=487192292 instance=ExtResource("32_fef1n")]
-position = Vector2(-5767, 7584)
+position = Vector2(-6471, 7168)
 
 [node name="MinerioOuro31" parent="ordem_de_colisoes/Minerios" unique_id=1187453203 instance=ExtResource("32_fef1n")]
-position = Vector2(-5495, 7808)
+position = Vector2(-5759, 7584)
 
 [node name="MinerioOuro32" parent="ordem_de_colisoes/Minerios" unique_id=1817952441 instance=ExtResource("32_fef1n")]
-position = Vector2(-5631, 7520)
+position = Vector2(-5895, 7440)
 
 [node name="MinerioOuro33" parent="ordem_de_colisoes/Minerios" unique_id=1065334599 instance=ExtResource("32_fef1n")]
-position = Vector2(-5607, 7696)
+position = Vector2(-6263, 7424)
 
 [node name="MinerioOuro34" parent="ordem_de_colisoes/Minerios" unique_id=868205092 instance=ExtResource("32_fef1n")]
-position = Vector2(-5791, 7704)
+position = Vector2(-6055, 7496)
 
 [node name="MinerioOuro35" parent="ordem_de_colisoes/Minerios" unique_id=519729518 instance=ExtResource("32_fef1n")]
-position = Vector2(-5639, 7848)
+position = Vector2(-5799, 7744)
 
 [node name="MinerioOuro36" parent="ordem_de_colisoes/Minerios" unique_id=517619653 instance=ExtResource("32_fef1n")]
-position = Vector2(-5820, 7811)
+position = Vector2(-6471, 7408)
 
 [node name="MinerioOuro37" parent="ordem_de_colisoes/Minerios" unique_id=1684388314 instance=ExtResource("32_fef1n")]
-position = Vector2(-5191, 7552)
+position = Vector2(-5543, 7568)
 
 [node name="MinerioOuro38" parent="ordem_de_colisoes/Minerios" unique_id=483236356 instance=ExtResource("32_fef1n")]
-position = Vector2(-5327, 7576)
+position = Vector2(-5743, 7208)
 
 [node name="MinerioOuro39" parent="ordem_de_colisoes/Minerios" unique_id=1492039309 instance=ExtResource("32_fef1n")]
-position = Vector2(-4983, 7632)
+position = Vector2(-5671, 7392)
 
 [node name="MinerioOuro40" parent="ordem_de_colisoes/Minerios" unique_id=1452381900 instance=ExtResource("32_fef1n")]
-position = Vector2(-5439, 7464)
+position = Vector2(-6015, 7264)
 
 [node name="MinerioOuro41" parent="ordem_de_colisoes/Minerios" unique_id=32216803 instance=ExtResource("32_fef1n")]
-position = Vector2(-5263, 7432)
+position = Vector2(-6047, 7040)
 
 [node name="MinerioOuro42" parent="ordem_de_colisoes/Minerios" unique_id=1244111549 instance=ExtResource("32_fef1n")]
-position = Vector2(-5471, 7616)
+position = Vector2(-5647, 6344)
 
 [node name="MinerioOuro43" parent="ordem_de_colisoes/Minerios" unique_id=1110666903 instance=ExtResource("32_fef1n")]
-position = Vector2(-5007, 7272)
+position = Vector2(-5911, 6904)
 
 [node name="MinerioOuro44" parent="ordem_de_colisoes/Minerios" unique_id=1451798606 instance=ExtResource("32_fef1n")]
-position = Vector2(-4735, 7496)
+position = Vector2(-5703, 6528)
 
 [node name="MinerioOuro45" parent="ordem_de_colisoes/Minerios" unique_id=603324757 instance=ExtResource("32_fef1n")]
-position = Vector2(-4871, 7208)
+position = Vector2(-5687, 6800)
 
 [node name="MinerioOuro46" parent="ordem_de_colisoes/Minerios" unique_id=371795815 instance=ExtResource("32_fef1n")]
-position = Vector2(-4847, 7384)
+position = Vector2(-5415, 7160)
 
 [node name="MinerioOuro47" parent="ordem_de_colisoes/Minerios" unique_id=636106816 instance=ExtResource("32_fef1n")]
-position = Vector2(-5031, 7392)
+position = Vector2(-5639, 7024)
 
 [node name="MinerioOuro48" parent="ordem_de_colisoes/Minerios" unique_id=1411680160 instance=ExtResource("32_fef1n")]
-position = Vector2(-4879, 7536)
+position = Vector2(-5407, 7408)
 
 [node name="MinerioOuro49" parent="ordem_de_colisoes/Minerios" unique_id=1698899763 instance=ExtResource("32_fef1n")]
-position = Vector2(-5039, 7464)
+position = Vector2(-5847, 7048)
 
 [node name="MinerioOuro50" parent="ordem_de_colisoes/Minerios" unique_id=830932742 instance=ExtResource("32_fef1n")]
-position = Vector2(-7655, 7048)
+position = Vector2(-7535, 6704)
 
 [node name="MinerioOuro51" parent="ordem_de_colisoes/Minerios" unique_id=1333447640 instance=ExtResource("32_fef1n")]
-position = Vector2(-7791, 7072)
+position = Vector2(-6495, 6912)
 
 [node name="MinerioOuro52" parent="ordem_de_colisoes/Minerios" unique_id=2021441448 instance=ExtResource("32_fef1n")]
-position = Vector2(-7855, 7208)
+position = Vector2(-5831, 6336)
 
 [node name="MinerioOuro53" parent="ordem_de_colisoes/Minerios" unique_id=1460139972 instance=ExtResource("32_fef1n")]
-position = Vector2(-7903, 6960)
+position = Vector2(-7319, 6408)
 
 [node name="MinerioOuro54" parent="ordem_de_colisoes/Minerios" unique_id=1998667029 instance=ExtResource("32_fef1n")]
-position = Vector2(-7727, 6928)
+position = Vector2(-7311, 6912)
 
 [node name="MinerioOuro55" parent="ordem_de_colisoes/Minerios" unique_id=120864818 instance=ExtResource("32_fef1n")]
-position = Vector2(-7935, 7112)
+position = Vector2(-6679, 6784)
 
 [node name="MinerioOuro56" parent="ordem_de_colisoes/Minerios" unique_id=1732564446 instance=ExtResource("32_fef1n")]
-position = Vector2(-7295, 7136)
+position = Vector2(-6887, 6968)
 
 [node name="MinerioOuro57" parent="ordem_de_colisoes/Minerios" unique_id=2108509288 instance=ExtResource("32_fef1n")]
-position = Vector2(-7559, 7144)
+position = Vector2(-6287, 7040)
 
 [node name="MinerioOuro58" parent="ordem_de_colisoes/Minerios" unique_id=1391526355 instance=ExtResource("32_fef1n")]
-position = Vector2(-7447, 7192)
+position = Vector2(-5495, 6448)
 
 [node name="MinerioOuro59" parent="ordem_de_colisoes/Minerios" unique_id=1550428809 instance=ExtResource("32_fef1n")]
-position = Vector2(-7399, 7096)
+position = Vector2(-6959, 6808)
 
 [node name="MinerioOuro60" parent="ordem_de_colisoes/Minerios" unique_id=121556809 instance=ExtResource("32_fef1n")]
-position = Vector2(-7527, 7024)
+position = Vector2(-7391, 6568)
 
 [node name="MinerioOuro61" parent="ordem_de_colisoes/Minerios" unique_id=667739296 instance=ExtResource("32_fef1n")]
-position = Vector2(-7654, 7264)
+position = Vector2(-7263, 7176)
 
 [node name="MinerioOuro62" parent="ordem_de_colisoes/Minerios" unique_id=96873987 instance=ExtResource("32_fef1n")]
-position = Vector2(-7714, 7175)
+position = Vector2(-7511, 6328)
 
 [node name="MinerioOuro63" parent="ordem_de_colisoes/Minerios" unique_id=853865941 instance=ExtResource("32_fef1n")]
 position = Vector2(-7231, 7472)
 
 [node name="MinerioOuro64" parent="ordem_de_colisoes/Minerios" unique_id=1920875804 instance=ExtResource("32_fef1n")]
-position = Vector2(-7447, 7336)
+position = Vector2(-5999, 6712)
 
 [node name="MinerioOuro65" parent="ordem_de_colisoes/Minerios" unique_id=60128096 instance=ExtResource("32_fef1n")]
 position = Vector2(-6831, 7440)
 
 [node name="MinerioOuro66" parent="ordem_de_colisoes/Minerios" unique_id=319400108 instance=ExtResource("32_fef1n")]
-position = Vector2(-7151, 7272)
+position = Vector2(-7087, 7152)
 
 [node name="MinerioOuro67" parent="ordem_de_colisoes/Minerios" unique_id=716322592 instance=ExtResource("32_fef1n")]
 position = Vector2(-7127, 7368)
 
 [node name="MinerioOuro68" parent="ordem_de_colisoes/Minerios" unique_id=1663650494 instance=ExtResource("32_fef1n")]
-position = Vector2(-6967, 7464)
+position = Vector2(-5599, 7760)
 
 [node name="MinerioOuro69" parent="ordem_de_colisoes/Minerios" unique_id=1601033423 instance=ExtResource("32_fef1n")]
-position = Vector2(-7287, 7368)
+position = Vector2(-7391, 7080)
 
 [node name="MinerioOuro70" parent="ordem_de_colisoes/Minerios" unique_id=1514749242 instance=ExtResource("32_fef1n")]
-position = Vector2(-7351, 7272)
+position = Vector2(-6671, 7104)
+
+[node name="MeteoroOuro" parent="ordem_de_colisoes/Minerios" unique_id=687216026 instance=ExtResource("31_mow1a")]
+position = Vector2(-6551, 6376)
 
 [node name="decoracao" type="Node2D" parent="ordem_de_colisoes" unique_id=47120872]
 y_sort_enabled = true
 position = Vector2(-103, 0)
 
 [node name="cogumelo" parent="ordem_de_colisoes/decoracao" unique_id=832695215 instance=ExtResource("5_vgy50")]
-position = Vector2(208, 208)
+position = Vector2(152, 456)
 
 [node name="pedras2" parent="ordem_de_colisoes/decoracao" unique_id=44188284 instance=ExtResource("6_uebo2")]
-position = Vector2(1112, -100)
+position = Vector2(1136, 48)
 
 [node name="pedras3" parent="ordem_de_colisoes/decoracao" unique_id=534041255 instance=ExtResource("6_uebo2")]
 position = Vector2(1000, 848)
@@ -3052,10 +3078,10 @@ position = Vector2(1000, 848)
 position = Vector2(1246, 754)
 
 [node name="arbustos2" parent="ordem_de_colisoes/decoracao" unique_id=755906957 instance=ExtResource("7_i8hth")]
-position = Vector2(-24, 384)
+position = Vector2(40, 248)
 
 [node name="arbustos3" parent="ordem_de_colisoes/decoracao" unique_id=1679360062 instance=ExtResource("7_i8hth")]
-position = Vector2(1226, 298)
+position = Vector2(1344, 328)
 
 [node name="Animais" type="Node2D" parent="ordem_de_colisoes" unique_id=384604435]
 y_sort_enabled = true
@@ -3074,7 +3100,7 @@ position = Vector2(669, 211)
 y_sort_enabled = true
 
 [node name="Galinha2" parent="ordem_de_colisoes/Animais/galinhas" unique_id=302753671 instance=ExtResource("17_523m1")]
-position = Vector2(156, 81)
+position = Vector2(-151, 392)
 
 [node name="Galinha3" parent="ordem_de_colisoes/Animais/galinhas" unique_id=1137490856 instance=ExtResource("17_523m1")]
 position = Vector2(1106, 511)
@@ -3110,7 +3136,7 @@ position = Vector2(-6047, 4856)
 position = Vector2(-6471, 5376)
 
 [node name="TNT" parent="ordem_de_colisoes/Inimigos" unique_id=965667395 instance=ExtResource("22_22hpo")]
-position = Vector2(-6376, 6090)
+position = Vector2(-5615, 5264)
 
 [node name="TNT2" parent="ordem_de_colisoes/Inimigos" unique_id=2047563084 instance=ExtResource("22_22hpo")]
 position = Vector2(-6583, 4640)
@@ -3119,16 +3145,16 @@ position = Vector2(-6583, 4640)
 y_sort_enabled = true
 
 [node name="Cavaleiro" parent="ordem_de_colisoes/Aliados" unique_id=1544918080 instance=ExtResource("28_b14it")]
-position = Vector2(265, 384)
+position = Vector2(337, 576)
 
 [node name="Padre" parent="ordem_de_colisoes/Aliados" unique_id=1997433810 instance=ExtResource("32_geoib")]
-position = Vector2(817, 304)
+position = Vector2(873, 424)
 
 [node name="Lanceiro" parent="ordem_de_colisoes/Aliados" unique_id=288199993 instance=ExtResource("33_phhyy")]
 position = Vector2(390, 173)
 
 [node name="Arqueiro" parent="ordem_de_colisoes/Aliados" unique_id=1435091989 instance=ExtResource("34_i180u")]
-position = Vector2(1027, 150)
+position = Vector2(489, 640)
 
 [node name="arvores" type="Node2D" parent="ordem_de_colisoes" unique_id=1867822827]
 y_sort_enabled = true
@@ -3355,17 +3381,8 @@ position = Vector2(-448, 812)
 [node name="arvore_unica80" parent="ordem_de_colisoes/arvores" unique_id=1024978841 instance=ExtResource("6_oafyw")]
 position = Vector2(-136, 1036)
 
-[node name="arvore_unica84" parent="ordem_de_colisoes/arvores" unique_id=790569766 instance=ExtResource("6_oafyw")]
-position = Vector2(1012, 730)
-
-[node name="arvore_unica85" parent="ordem_de_colisoes/arvores" unique_id=2071372212 instance=ExtResource("6_oafyw")]
-position = Vector2(1575, 740)
-
 [node name="arvore_unica92" parent="ordem_de_colisoes/arvores" unique_id=1366902298 instance=ExtResource("6_oafyw")]
 position = Vector2(1690, 934)
-
-[node name="arvore_unica91" parent="ordem_de_colisoes/arvores" unique_id=1880550190 instance=ExtResource("6_oafyw")]
-position = Vector2(881, -64)
 
 [node name="arvore_unica86" parent="ordem_de_colisoes/arvores" unique_id=650007259 instance=ExtResource("6_oafyw")]
 position = Vector2(2353, 1040)
@@ -3410,7 +3427,7 @@ position = Vector2(1401, -312)
 position = Vector2(537, -296)
 
 [node name="ArvoreBranca4" parent="ordem_de_colisoes/arvores" unique_id=1481674463 instance=ExtResource("22_tar6r")]
-position = Vector2(833, -248)
+position = Vector2(1209, -328)
 
 [node name="ArvoreBranca5" parent="ordem_de_colisoes/arvores" unique_id=892017254 instance=ExtResource("22_tar6r")]
 position = Vector2(1001, -344)
@@ -3469,7 +3486,7 @@ position = Vector2(2353, 544)
 [node name="sementes" type="Node2D" parent="ordem_de_colisoes" unique_id=1850575264]
 
 [node name="Semente" parent="ordem_de_colisoes/sementes" unique_id=1313395066 instance=ExtResource("17_vgw7d")]
-position = Vector2(689, 160)
+position = Vector2(625, 272)
 
 [node name="AreaDePlantio" type="Node2D" parent="." unique_id=631944683]
 

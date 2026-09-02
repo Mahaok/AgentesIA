@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dra2femyix3j7"]
+
+[ext_resource type="Texture2D" uid="uid://dw7ekhvgmvqem" path="res://Buildings/Red Buildings/House2.png" id="1_xa0pd"]
+
+[node name="CasaDiagonal" type="StaticBody2D" unique_id=982969943]
+scale = Vector2(1.5, 1.5)
+
+[node name="Textura" type="Sprite2D" parent="." unique_id=1234212567]
+texture = ExtResource("1_xa0pd")
+offset = Vector2(0, -48)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1611702678]
+polygon = PackedVector2Array(-55, 1, -11, 29, 54, -2, 7, -26)

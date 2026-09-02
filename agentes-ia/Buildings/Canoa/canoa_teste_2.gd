@@ -15,20 +15,21 @@ var diferenca_posicao: Vector2
 
 func _physics_process(delta: float) -> void:
 	diferenca_posicao = get_global_mouse_position() - canoa.global_position
-	
+	print(diferenca_posicao)
 	navegar()
 	desembarque()
 	
 func navegar() -> void:
 	if player_ref and Input.is_action_pressed("navegar"):
-		canoa.global_position = canoa.global_position.move_toward(get_global_mouse_position(), 7)#pin_ilha.position,10)
+		canoa.global_position = canoa.global_position.move_toward(get_global_mouse_position(), 7)
 		move_and_slide()
-		player_ref.global_position = canoa.global_position
-		if player_ref and diferenca_posicao.x < 0:
+		if player_ref and diferenca_posicao.x < -20:
 			textura.flip_h = true
-		if player_ref and diferenca_posicao.x > 0:
+			player_ref.global_position = canoa.global_position + Vector2(64,0)
+		if player_ref and diferenca_posicao.x > 20:
 			textura.flip_h = false
-
+			player_ref.global_position = canoa.global_position + Vector2(-64,0)
+			
 func desembarque() -> void:
 	if player_ref and barco_in_ilha and Input.is_action_just_pressed("interagir"):
 		player_ref.global_position = pin_porto_inimigos.position

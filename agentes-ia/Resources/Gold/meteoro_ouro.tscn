@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://co0gtsm4abcfa"]
+
+[ext_resource type="Script" uid="uid://ccl8y5iywhs3r" path="res://Resources/Gold/meteoro_ouro.gd" id="1_q6kaf"]
+[ext_resource type="Texture2D" uid="uid://d4m2m8oxdcrm1" path="res://Resources/Gold/Gold Stones/Gold Stone 4_Highlight.png" id="3_n2rcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6kaf"]
+atlas = ExtResource("3_n2rcs")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grcek"]
+atlas = ExtResource("3_n2rcs")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b41ug"]
+atlas = ExtResource("3_n2rcs")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj5tp"]
+atlas = ExtResource("3_n2rcs")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awa5p"]
+atlas = ExtResource("3_n2rcs")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2rcs"]
+atlas = ExtResource("3_n2rcs")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xudr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6kaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grcek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b41ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj5tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awa5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2rcs")
+}],
+"loop": 0,
+"name": &"meteoro",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wuano"]
+radius = 50.159744
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fef1n"]
+radius = 19.0
+height = 62.0
+
+[node name="MeteoroOuro" type="StaticBody2D" unique_id=340267077 node_paths=PackedStringArray("minerio_ouro", "textura", "colisao") groups=["minerio"]]
+scale = Vector2(20, 20)
+script = ExtResource("1_q6kaf")
+minerio_ouro = NodePath(".")
+textura = NodePath("Textura")
+colisao = NodePath("CollisionPolygon2D")
+
+[node name="Textura" type="AnimatedSprite2D" parent="." unique_id=358281336]
+sprite_frames = SubResource("SpriteFrames_xudr7")
+animation = &"meteoro"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=748090863]
+polygon = PackedVector2Array(-17, 11, 5, 19, 14, 17, 22, 13, 28, 6, 28, 2, 24, -4, 18, -10, 10, -13, -12, -13, -20, -7, -23, -2, -22, 4)
+
+[node name="AreaEncontro" type="Area2D" parent="." unique_id=40418322]
+show_behind_parent = true
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaEncontro" unique_id=583620504]
+shape = SubResource("CircleShape2D_wuano")
+
+[node name="AreaMineracao" type="Area2D" parent="." unique_id=876852580]
+show_behind_parent = true
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaMineracao" unique_id=235582429]
+position = Vector2(1, 1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fef1n")
+debug_color = Color(0.18654856, 0.64264786, 0, 0.41960785)
+
+[connection signal="body_entered" from="AreaEncontro" to="." method="_on_area_encontro_body_entered"]
+[connection signal="body_entered" from="AreaMineracao" to="." method="_on_area_mineracao_body_entered"]

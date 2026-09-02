@@ -58,7 +58,7 @@ textura = NodePath("Textura")
 [node name="Textura" type="Sprite2D" parent="." unique_id=1987860091]
 scale = Vector2(2, 2)
 texture = ExtResource("1_ju6fe")
-offset = Vector2(0, -20)
+offset = Vector2(0, -10)
 flip_h = true
 hframes = 7
 
@@ -67,7 +67,7 @@ libraries/ = SubResource("AnimationLibrary_x3n57")
 autoplay = &"canoa"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1065859650]
-position = Vector2(-2, -36)
+position = Vector2(-2, -18)
 scale = Vector2(1.0991379, 1.0290354)
 polygon = PackedVector2Array(110.99608, 106.896225, 123.73334, 103.00908, 128.28235, 90.3759, 127.37255, -33.040646, 107.356865, -42.758488, 110.08628, 46.645622, 100.07844, 56.363464, -84.61176, 55.391678, -100.07843, 42.758488, -101.89804, -20.40746, -62.77647, -44.702053, 107.356865, -42.758488, 127.37255, -33.040646, 120.094124, -64.137726, 101.89804, -77.74271, -62.77647, -74.82735, -94.619606, -66.0813, -117.3647, -50.532757, -114.63529, 69.96844, -107.35686, 93.291245, -94.619606, 106.896225)
 
@@ -76,7 +76,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Colisao" type="CollisionShape2D" parent="AreaBarco" unique_id=1638431726]
-position = Vector2(0, -24)
+position = Vector2(0, -12)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_68gkv")
 
