@@ -22,13 +22,12 @@ func _physics_process(delta: float) -> void:
 func navegar() -> void:
 	if player_ref and Input.is_action_pressed("navegar"):
 		canoa.global_position = canoa.global_position.move_toward(get_global_mouse_position(), 7)
+		player_ref.global_position = canoa.global_position
 		move_and_slide()
 		if player_ref and diferenca_posicao.x < -20:
 			textura.flip_h = true
-			player_ref.global_position = canoa.global_position + Vector2(64,0)
 		if player_ref and diferenca_posicao.x > 20:
 			textura.flip_h = false
-			player_ref.global_position = canoa.global_position + Vector2(-64,0)
 			
 func desembarque() -> void:
 	if player_ref and barco_in_ilha and Input.is_action_just_pressed("interagir"):

@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://cfg8daw75oj8a"]
 
 [ext_resource type="Texture2D" uid="uid://dlvyp8m4s7i1p" path="res://Buildings/Red Buildings/Monastery.png" id="1_0ogwt"]
+[ext_resource type="Script" uid="uid://by3o63hc0qyd5" path="res://Buildings/Red Buildings/igreja.gd" id="1_e4ifg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xudr7"]
 size = Vector2(114, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuano"]
+size = Vector2(48, 9)
+
 [node name="Igreja" type="StaticBody2D" unique_id=963714311]
 scale = Vector2(2, 2)
+script = ExtResource("1_e4ifg")
 
 [node name="Textura" type="Sprite2D" parent="." unique_id=120125700]
 texture = ExtResource("1_0ogwt")
@@ -15,3 +20,11 @@ offset = Vector2(0, -140)
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=121734996]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_xudr7")
+
+[node name="Entrada" type="Area2D" parent="." unique_id=193715341]
+
+[node name="Colisao" type="CollisionShape2D" parent="Entrada" unique_id=801268416]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_wuano")
+
+[connection signal="body_entered" from="Entrada" to="." method="_on_entrada_body_entered"]
