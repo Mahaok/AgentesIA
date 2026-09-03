@@ -40,8 +40,8 @@ func update_health() -> void:
 		colisao.set_deferred("disabled", false)
 		
 func spawn_gold() -> void:
-	var gold_amount: int = randi_range((1*x), (3*x))
+	var gold_amount: int = randi_range((1*100), (3*100))
 	for i in gold_amount:
 		var gold = ouro_cena.instantiate()
-		gold.global_position = global_position + Vector2(randi_range(-32, 32), randi_range(-32, 32))
+		gold.global_position = global_position + Vector2(randi_range(-256, 256), randi_range(-256, 256))
 		get_tree().root.call_deferred("add_child", gold)

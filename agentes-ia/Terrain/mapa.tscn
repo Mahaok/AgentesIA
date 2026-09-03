@@ -1319,7 +1319,7 @@ y_sort_enabled = true
 position = Vector2(103, 0)
 
 [node name="PeaoTeste" parent="ordem_de_colisoes" unique_id=1613377637 instance=ExtResource("17_b14it")]
-position = Vector2(513, 296)
+position = Vector2(-5338, 6204)
 
 [node name="Vela" parent="ordem_de_colisoes" unique_id=763306482 instance=ExtResource("23_stnrs")]
 position = Vector2(-95, 1776)
