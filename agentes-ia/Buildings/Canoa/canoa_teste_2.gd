@@ -15,7 +15,6 @@ var diferenca_posicao: Vector2
 
 func _physics_process(delta: float) -> void:
 	diferenca_posicao = get_global_mouse_position() - canoa.global_position
-	print(diferenca_posicao)
 	navegar()
 	desembarque()
 	

@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://bem4wdvcg368c" path="res://Buildings/ItensInterior/furniture.png" id="20_d4bbj"]
 [ext_resource type="PackedScene" uid="uid://bw4f83rt07ysj" path="res://Terrain/Water/Rocks/rock_04.tscn" id="20_fef1n"]
 [ext_resource type="PackedScene" uid="uid://ccqca8nl3ndxi" path="res://Inimigos/goblin.tscn" id="21_523m1"]
+[ext_resource type="Texture2D" uid="uid://bnilqss7ni8hq" path="res://Buildings/ItensInterior/altar.png" id="21_d4bbj"]
 [ext_resource type="Texture2D" uid="uid://cdwg2sg06kwfq" path="res://Buildings/ItensInterior/tapete.png" id="21_mekrt"]
 [ext_resource type="PackedScene" uid="uid://coajmgtv7jhdy" path="res://Inimigos/TNT/tnt.tscn" id="22_22hpo"]
 [ext_resource type="PackedScene" uid="uid://cfg8daw75oj8a" path="res://Buildings/Red Buildings/igreja.tscn" id="22_pcgts"]
@@ -45,8 +46,10 @@
 [ext_resource type="PackedScene" uid="uid://dl2trex8gjkf" path="res://Buildings/Red Buildings/torre.tscn" id="23_5e73i"]
 [ext_resource type="PackedScene" uid="uid://c6aqa7ycf0171" path="res://Buildings/Canoa/vela.tscn" id="23_stnrs"]
 [ext_resource type="PackedScene" uid="uid://cmtslo7d74mei" path="res://Buildings/Red Buildings/casa_frontal.tscn" id="26_67lvv"]
+[ext_resource type="PackedScene" uid="uid://bydsic48nha0i" path="res://Buildings/Canoa/bau_canoa.tscn" id="27_0rwl6"]
 [ext_resource type="PackedScene" uid="uid://dra2femyix3j7" path="res://Buildings/Red Buildings/casa_diagonal.tscn" id="27_tjy7n"]
 [ext_resource type="PackedScene" uid="uid://wf8ficnd61hd" path="res://personagem/cavaleiro.tscn" id="28_b14it"]
+[ext_resource type="Script" uid="uid://b6726vlbwks00" path="res://camera_personagem.gd" id="28_mekrt"]
 [ext_resource type="Texture2D" uid="uid://bu4evuepmkh05" path="res://Terrain/Bridge/Bridge_All.png" id="29_dodfg"]
 [ext_resource type="PackedScene" uid="uid://co0gtsm4abcfa" path="res://Resources/Gold/meteoro_ouro.tscn" id="31_mow1a"]
 [ext_resource type="PackedScene" uid="uid://c6wqnlwsh3ijn" path="res://Resources/Gold/minerio_ouro.tscn" id="32_fef1n"]
@@ -902,6 +905,12 @@ texture = ExtResource("19_x7yge")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wysch"]
 texture = ExtResource("20_d4bbj")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mekrt"]
+texture = ExtResource("21_d4bbj")
+0:0/size_in_atlas = Vector2i(4, 3)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-26, -18, 26, -18, 26, 18, -26, 18)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_du5pe"]
 texture = ExtResource("21_mekrt")
 0:2/0 = 0
@@ -980,6 +989,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_0rwl6")
 sources/1 = SubResource("TileSetAtlasSource_wysch")
 sources/4 = SubResource("TileSetAtlasSource_du5pe")
+sources/2 = SubResource("TileSetAtlasSource_mekrt")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ex0vd"]
 texture = ExtResource("2_vgy50")
@@ -1237,7 +1247,7 @@ position = Vector2(568, 96)
 
 [node name="Decoracao" type="TileMapLayer" parent="Interior/Igreja" unique_id=136128757]
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAC1AL7/AAAAAAEAAAC1ALz/AAAAAAEAAAC1ALr/AAAAAAEAAAC7ALr/AAAAAAEAAAC7ALz/AAAAAAEAAAC7AL7/AAAAAAEAAAC3AMD/BAAAAAIAAAC4AMD/BAABAAIAAAC5AMD/BAACAAIAAAC5AL//BAACAAEAAAC5AL7/BAACAAEAAAC5AL3/BAACAAEAAAC5ALz/BAACAAEAAAC5ALv/BAACAAEAAAC5ALr/BAACAAEAAAC5ALn/BAACAAAAAAC3ALn/BAAAAAAAAAC3ALr/BAAAAAEAAAC3ALv/BAAAAAEAAAC3ALz/BAAAAAEAAAC3AL3/BAAAAAEAAAC3AL7/BAAAAAEAAAC3AL//BAAAAAEAAAC4AL//BAABAAEAAAC4AL7/BAABAAEAAAC4AL3/BAABAAEAAAC4ALz/BAABAAEAAAC4ALv/BAABAAEAAAC4ALr/BAABAAEAAAC4ALn/BAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAC1AL7/AAAAAAEAAAC1ALz/AAAAAAEAAAC1ALr/AAAAAAEAAAC7ALr/AAAAAAEAAAC7ALz/AAAAAAEAAAC7AL7/AAAAAAEAAAC3AMD/BAAAAAIAAAC4AMD/BAABAAIAAAC5AMD/BAACAAIAAAC5AL//BAACAAEAAAC5AL7/BAACAAEAAAC5AL3/BAACAAEAAAC5ALz/BAACAAEAAAC5ALv/BAACAAEAAAC5ALr/BAACAAEAAAC5ALn/BAACAAAAAAC3ALn/BAAAAAAAAAC3ALr/BAAAAAEAAAC3ALv/BAAAAAEAAAC3ALz/BAAAAAEAAAC3AL3/BAAAAAEAAAC3AL7/BAAAAAEAAAC3AL//BAAAAAEAAAC4AL//BAABAAEAAAC4AL7/BAABAAEAAAC4AL3/BAABAAEAAAC4ALz/BAABAAEAAAC4ALv/BAABAAEAAAC4ALr/BAABAAEAAAC4ALn/BAABAAAAAAC4ALf/AgAAAAAAAAA=")
 tile_set = SubResource("TileSet_8e8t0")
 
 [node name="Porto" type="Node2D" parent="." unique_id=1400495290]
@@ -1314,12 +1324,17 @@ position = Vector2(-4386, 5014)
 position = Vector2(9, 1779)
 platform_on_leave = 2
 
+[node name="BauCanoa" parent="Porto/Porto/CanoaTeste2" unique_id=1449952088 instance=ExtResource("27_0rwl6")]
+
 [node name="ordem_de_colisoes" type="Node2D" parent="." unique_id=601460617]
 y_sort_enabled = true
 position = Vector2(103, 0)
 
 [node name="PeaoTeste" parent="ordem_de_colisoes" unique_id=1613377637 instance=ExtResource("17_b14it")]
-position = Vector2(-5338, 6204)
+position = Vector2(465, 1376)
+
+[node name="CameraPersonagem" type="Camera2D" parent="ordem_de_colisoes/PeaoTeste" unique_id=1417191740]
+script = ExtResource("28_mekrt")
 
 [node name="Vela" parent="ordem_de_colisoes" unique_id=763306482 instance=ExtResource("23_stnrs")]
 position = Vector2(-95, 1776)
@@ -1327,8 +1342,9 @@ position = Vector2(-95, 1776)
 [node name="Construcoes" type="Node2D" parent="ordem_de_colisoes" unique_id=1305883369]
 y_sort_enabled = true
 
-[node name="Igreja" parent="ordem_de_colisoes/Construcoes" unique_id=963714311 instance=ExtResource("22_pcgts")]
+[node name="Igreja" parent="ordem_de_colisoes/Construcoes" unique_id=963714311 node_paths=PackedStringArray("camera") instance=ExtResource("22_pcgts")]
 position = Vector2(462, 33)
+camera = NodePath("../../../Cameras/CameraIgreja")
 
 [node name="casa" type="TileMapLayer" parent="ordem_de_colisoes/Construcoes" unique_id=1366268487]
 y_sort_enabled = true
@@ -3324,7 +3340,7 @@ position = Vector2(-6583, 4640)
 y_sort_enabled = true
 
 [node name="Cavaleiro" parent="ordem_de_colisoes/Aliados" unique_id=1544918080 instance=ExtResource("28_b14it")]
-position = Vector2(465, 1152)
+position = Vector2(305, 784)
 
 [node name="Padre" parent="ordem_de_colisoes/Aliados" unique_id=1997433810 instance=ExtResource("32_geoib")]
 position = Vector2(665, -48)
@@ -3676,9 +3692,11 @@ visible = false
 position = Vector2(1502.25, 861)
 shape = SubResource("RectangleShape2D_8w10v")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1876872450]
-position = Vector2(-2088, 2960)
-zoom = Vector2(0.1, 0.1)
+[node name="Cameras" type="Node2D" parent="." unique_id=976369582]
+
+[node name="CameraIgreja" type="Camera2D" parent="Cameras" unique_id=518609914]
+position = Vector2(8856, -3280)
+zoom = Vector2(0.8, 0.8)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=28326805]
 visible = false
@@ -3690,6 +3708,13 @@ offset_top = 80.0
 offset_right = 256.0
 offset_bottom = 160.0
 text = "sementes"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=379182820]
+offset_left = -12464.0
+offset_top = -4232.0
+offset_right = 7432.0
+offset_bottom = 11064.0
+color = Color(0.024359688, 4.337784e-06, 0.17788365, 0.72156864)
 
 [connection signal="body_entered" from="Mapa/AreaCamada1" to="Mapa" method="_on_area_camada_1_body_entered"]
 [connection signal="body_entered" from="IlhaInimigos/AreaCamada1" to="IlhaInimigos" method="_on_area_camada_1_body_entered"]

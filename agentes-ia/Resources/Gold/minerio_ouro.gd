@@ -27,15 +27,22 @@ func _on_area_mineracao_body_entered(body: Node2D) -> void:
 	if body.is_in_group("character"):
 		player_ref.can_mine = true
 
+func _on_area_mineracao_body_exited(body: Node2D) -> void:
+	if body.is_in_group("character"):
+		player_ref.can_mine = false
+	
 func update_health() -> void:
 	health -= 1.0
 	if health <= 0:
+		textura.play("quebrou")
 		spawn_gold()
-		textura.visible = false
 		colisao.set_deferred("disabled", true)
+		await get_tree().create_timer(0.8).timeout
+		textura.visible = false
 		
-		await get_tree().create_timer(20.0*x).timeout
+		await get_tree().create_timer(3*x).timeout
 		health = 5.0 * x
+		textura.animation = ["shine01", "shine02", "shine03", "shine04"].pick_random()
 		textura.visible = true
 		colisao.set_deferred("disabled", false)
 		

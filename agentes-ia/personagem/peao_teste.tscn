@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b8x3uhukpdowt" path="res://personagem/Pawn/Pawn_Interact Axe.png" id="3_5cye2"]
 [ext_resource type="Texture2D" uid="uid://djj6c75lfatft" path="res://personagem/Pawn/Pawn_Run.png" id="3_8fqoh"]
 [ext_resource type="Texture2D" uid="uid://48cp1852fcs8" path="res://personagem/Pawn/Pawn_Interact Hammer.png" id="3_wtu36"]
-[ext_resource type="Script" uid="uid://cdbgbub8hko3n" path="res://personagem/camera_2d.gd" id="3_wukgv"]
-[ext_resource type="Script" uid="uid://x877bev0rgob" path="res://personagem/segura_info.gd" id="4_5cye2"]
 [ext_resource type="Texture2D" uid="uid://bmm66w0filky0" path="res://personagem/Pawn/Pawn_Interact Pickaxe.png" id="5_2dvrc"]
+[ext_resource type="Texture2D" uid="uid://ceam3mc47mcu0" path="res://personagem/Pawn/Pawn_Idle Gold.png" id="5_6i7s5"]
 [ext_resource type="Texture2D" uid="uid://bj7u0s6t12f77" path="res://Resources/Plantas/Crop_Spritesheet.png" id="5_wtu36"]
+[ext_resource type="Texture2D" uid="uid://c2qwmx2uyp2fu" path="res://personagem/Pawn/Pawn_Run Gold.png" id="7_d8li3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jykj5"]
 atlas = ExtResource("3_5cye2")
@@ -78,6 +78,38 @@ region = Rect2(1152, 0, 192, 192)
 atlas = ExtResource("2_8fqoh")
 region = Rect2(1344, 0, 192, 192)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgwqb"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ol5"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8h2f"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6w6k"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5cuk"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr0ri"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqgwk"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0hdw"]
+atlas = ExtResource("5_6i7s5")
+region = Rect2(1344, 0, 192, 192)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mh3k"]
 atlas = ExtResource("5_2dvrc")
 region = Rect2(0, 0, 192, 192)
@@ -100,6 +132,30 @@ region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2plr"]
 atlas = ExtResource("5_2dvrc")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3apu0"]
+atlas = ExtResource("7_d8li3")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gliv3"]
+atlas = ExtResource("7_d8li3")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76vn3"]
+atlas = ExtResource("7_d8li3")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2udl"]
+atlas = ExtResource("7_d8li3")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8r3e"]
+atlas = ExtResource("7_d8li3")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmaiw"]
+atlas = ExtResource("7_d8li3")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nuv2"]
@@ -196,6 +252,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fgwqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7ol5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8h2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6w6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5cuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr0ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqgwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0hdw")
+}],
+"loop": 1,
+"name": &"idle_gold",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2mh3k")
 }, {
 "duration": 1.0,
@@ -215,6 +300,29 @@ animations = [{
 }],
 "loop": 0,
 "name": &"mine",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3apu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gliv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76vn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2udl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8r3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmaiw")
+}],
+"loop": 1,
+"name": &"run_gold",
 "speed": 10.0
 }, {
 "frames": [{
@@ -471,14 +579,6 @@ _data = {
 radius = 11.0
 height = 42.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_8w10v"]
-font_size = 32
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_xudr7"]
-font_size = 32
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_8w10v"]
 radius = 29.017237
 
@@ -515,34 +615,6 @@ show_behind_parent = true
 position = Vector2(0, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_xudr7")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1404553414]
-zoom = Vector2(0.7, 0.7)
-script = ExtResource("3_wukgv")
-
-[node name="SeguraInfo" type="CanvasLayer" parent="Camera2D" unique_id=973947982 node_paths=PackedStringArray("display_sementes", "display_tomates")]
-script = ExtResource("4_5cye2")
-display_sementes = NodePath("InfoSementes")
-display_tomates = NodePath("InfoTomates")
-
-[node name="InfoTomates" type="Label" parent="Camera2D/SeguraInfo" unique_id=744122935]
-visible = false
-anchors_preset = -1
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 340.00003
-offset_bottom = 127.0
-text = "Tomates"
-label_settings = SubResource("LabelSettings_8w10v")
-
-[node name="InfoSementes" type="Label" parent="Camera2D/SeguraInfo" unique_id=77434158]
-visible = false
-offset_left = 6.0
-offset_top = 44.0
-offset_right = 196.0
-offset_bottom = 99.0
-text = "Sementes"
-label_settings = SubResource("LabelSettings_xudr7")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=217364983]
 

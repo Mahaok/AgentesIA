@@ -64,8 +64,16 @@ func animate() -> void:
 		animacao.play(attack_animation_name)
 		return
 		
-	if velocity:
+	if velocity and Dados.ouro <= 0:
 		textura.play("walk")
+		return
+		
+	if velocity and Dados.ouro > 0:
+		textura.play("run_gold")
+		return
+	
+	if Dados.ouro > 0:
+		textura.play("idle_gold")
 		return
 		
 	textura.play("idle")

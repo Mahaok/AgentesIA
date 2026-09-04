@@ -1,10 +1,43 @@
 [gd_scene format=3 uid="uid://c6wqnlwsh3ijn"]
 
 [ext_resource type="Script" uid="uid://bqqwmyg0wmjyn" path="res://Resources/Gold/minerio_ouro.gd" id="1_4v2ph"]
+[ext_resource type="Texture2D" uid="uid://0cqnpct85oim" path="res://Particulas/Dust_01.png" id="2_0550g"]
 [ext_resource type="Texture2D" uid="uid://cbnljgullwt4v" path="res://Resources/Gold/Gold Stones/Gold Stone 3_Highlight.png" id="2_lcvu5"]
 [ext_resource type="Texture2D" uid="uid://d4m2m8oxdcrm1" path="res://Resources/Gold/Gold Stones/Gold Stone 4_Highlight.png" id="3_0550g"]
 [ext_resource type="Texture2D" uid="uid://bgmwtbo6c6gul" path="res://Resources/Gold/Gold Stones/Gold Stone 5_Highlight.png" id="4_0550g"]
 [ext_resource type="Texture2D" uid="uid://bo7a8pmng4a8l" path="res://Resources/Gold/Gold Stones/Gold Stone 6_Highlight.png" id="5_qy0hd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy0hd"]
+atlas = ExtResource("2_0550g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eputk"]
+atlas = ExtResource("2_0550g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp3xj"]
+atlas = ExtResource("2_0550g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3rek"]
+atlas = ExtResource("2_0550g")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxpeh"]
+atlas = ExtResource("2_0550g")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq1jk"]
+atlas = ExtResource("2_0550g")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imhyi"]
+atlas = ExtResource("2_0550g")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7ght"]
+atlas = ExtResource("2_0550g")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srjtq"]
 atlas = ExtResource("2_lcvu5")
@@ -106,6 +139,35 @@ region = Rect2(640, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qy0hd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eputk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp3xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3rek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxpeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq1jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imhyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7ght")
+}],
+"loop": 0,
+"name": &"quebrou",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_srjtq")
 }, {
 "duration": 1.0,
@@ -198,15 +260,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_326y8"]
-radius = 26.0
-height = 84.0
+radius = 23.0
+height = 72.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wuano"]
 radius = 98.005104
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fef1n"]
-radius = 29.0
-height = 84.0
+radius = 32.0
+height = 90.0
 
 [node name="MinerioOuro" type="StaticBody2D" unique_id=340267077 node_paths=PackedStringArray("minerio_ouro", "textura", "colisao") groups=["minerio"]]
 script = ExtResource("1_4v2ph")
@@ -216,7 +278,9 @@ colisao = NodePath("Colisao")
 
 [node name="Textura" type="AnimatedSprite2D" parent="." unique_id=358281336]
 sprite_frames = SubResource("SpriteFrames_xudr7")
-animation = &"shine04"
+animation = &"quebrou"
+frame = 7
+frame_progress = 1.0
 
 [node name="Colisao" type="CollisionShape2D" parent="." unique_id=175526070]
 show_behind_parent = true
@@ -232,13 +296,14 @@ show_behind_parent = true
 shape = SubResource("CircleShape2D_wuano")
 
 [node name="AreaMineracao" type="Area2D" parent="." unique_id=876852580]
-visible = false
 show_behind_parent = true
 
 [node name="Colisao" type="CollisionShape2D" parent="AreaMineracao" unique_id=235582429]
+position = Vector2(0, 4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_fef1n")
 debug_color = Color(0.18654856, 0.64264786, 0, 0.41960785)
 
 [connection signal="body_entered" from="AreaEncontro" to="." method="_on_area_encontro_body_entered"]
 [connection signal="body_entered" from="AreaMineracao" to="." method="_on_area_mineracao_body_entered"]
+[connection signal="body_exited" from="AreaMineracao" to="." method="_on_area_mineracao_body_exited"]
